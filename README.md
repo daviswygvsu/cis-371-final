@@ -8,6 +8,7 @@ The point of this project is to allow a more convenient and visualizable method 
 * The webpage should hold a map that users can interact with by clicking on locations
 * Clicking on a city allows a player to open up a page for *private* notes about that location
 * Private notes should be saved so that only the player that wrote them can access those notes in a later session
+* Clicking on a city should give the option to access the map for that specific city
 * The webpage will contain tabs that players can use to access "general notes" about the entire campaign (both private and public)
 * The webpage will have sound effects and animations
 
