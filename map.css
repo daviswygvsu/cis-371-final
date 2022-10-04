@@ -15,15 +15,15 @@
 }
 
 .navBar{
-    position: absolute;
+    position: fixed;
     left: 0px;
 }
 
-html{
-    background: url('assets/background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: burlywood;
+body{
+    margin:0px;
+}
+
+.map{
+    display: block;
+    margin: 0px;
 }
