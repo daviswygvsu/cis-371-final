@@ -2,22 +2,37 @@
 Final project for CIS 371, Grand Valley State University's course on Web Application Programming.
 
 ## Project Description
-The point of this project is to allow a more convenient and visualizable method for players of tabletop roleplaying games to take notes about a particular campaign. The idea is that a player may click on a location on a map and make notes about the characters, events, and noteworthy return points in that location.
 
-### Basic Goals
-* The webpage should hold a map that users can interact with by clicking on locations
-* Clicking on a city allows a player to open up a page for *private* notes about that location
-* Private notes should be saved so that only the player that wrote them can access those notes in a later session
-* Clicking on a city should give the option to access the map for that specific city
-* The webpage will contain tabs that players can use to access "general notes" about the entire campaign (both private and public)
-* The webpage will have sound effects and animations
+This application is a web application designed to make it easier for GMs of table-top RPGs to run their own, homebrewed games.
 
-### Advanced Goals
-* The webpage should give players options to take *public* notes, that they can save to the general webpage so that every player on the page can access them
-* The players should be able to do shopping in a town they've selected, and the DM should have access to an interface that lets them stock shops with items
-* The players should be able to calculate the amount of time it would take the party to travel from any selected point on the map to another point on the map
+More specifically, this app should provide interfaces for a campaign's GM to:
+* Create their own game; which includes a world, quests, player characters, and non-player characters
+* Add a map to their world, which they can place towns and landmarks on
+* Add maps to their towns, which they can place local landmarks (such as shops) on
+* Add items that can be stocked to shops
+* Manage their characters (both player and non-player)
+* Manage the quests within their games
 
-### Stretches
-The app is currently being made specifically for a campaign that developer Wyatt Davis is planning, but should be scalable, meaning that the webpage should be able to:
-* Allow DMs to create new campaigns, upload a map and select where to place notable locations
-* Allow DMs to share that specific campaign with their players
+As well as allow users to act as GMs for their own games, they can also:
+* Create a player character and join a game
+* Manage their characters' inventories, levels, etc.
+* Take both public and private notes on characters, quests, towns, etc.
+* Interact with landmarks (buy and sell from shops, estimate distances and travel times, etc.)
+
+## Stack Overview
+This is a single-page web application. It uses:
+* HTML as our mark-up language
+* CSS for our style sheets
+* JavaScript as out scripting language
+* React.js as our front-end framework
+* TBH as our database
+
+## Authors
+* [Wyatt Davis](https://www.linkedin.com/in/wyattndavis/)
+* [Ryan Kinahan](https://www.linkedin.com/in/ryankinahan/)
+
+## Resource Citation
+### Images
+*
+### Audio
+*
