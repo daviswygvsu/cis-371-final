@@ -23,7 +23,7 @@ As well as allow users to act as GMs for their own games, they can also:
 This is a single-page web application. It uses:
 * HTML as our mark-up language
 * CSS for our style sheets
-* JavaScript as out scripting language
+* JavaScript as our scripting language
 * React.js as our front-end framework
 * TBH as our database
 
