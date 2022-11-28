@@ -6,11 +6,26 @@ class Character {
             this.portrait = description.portrait; // The filepath or url to an image of this character
             this.game = description.game; // The game that this character exists in
         }
+        this.errors = [];
     }
 
     isValid () {
-        // Return true if character has a name
-        // Return false if character has no name
+        // Return false if the character does not have a name
+        if(!this.name){
+            this.errors.push("Character must have a name!");
+        }
+
+        //Return false if the character does not have a description
+        if(!this.description){
+            this.errors.push("Your character must have a description!(A single sentence works)");
+        }
+
+        //Return flase if the character does not have an assigned game
+        if(!this.game){
+            this.errors.push("Character does not have an assigned game!");
+        }
+
+        return this.errors.length <= 0;
     }
 }
 
@@ -24,11 +39,25 @@ class PC extends Character {
             this.inventory = description.inventory; // The item's in this player's inventory
             this.user = description.user; // The user playing this character
         }
+        this.errors = [];
     }
 
     isValid () {
-        // Return true if PC has level > 0, an amount of gold and experience >= 0, and the PC has a user
         // Return false if PC has level <= 0, and amount of gold or experience < 0, or the PC does not have a user
+        if(this.level < 0){
+            this.errors.push("Chracter cannot have a negative level!");
+        }
+        if(this.gp < 0){
+            this.errors.push("Character cannot have a negative amount of gold!");
+        }
+        if(this.xp < 0){
+            this.errors.push("Character cannot have a negative amount of xp!");
+        }
+        if(!this.user){
+            this.errors.push("Character must have a user!");
+        }
+        
+        return (this.errors.length <= 0)&& super.isValid();
     }
 }
 
@@ -39,10 +68,6 @@ class NPC extends Character {
             this.home = description.home; // The place where this NPC typically resides
             this.known = description.known; // Whether or not this character is known by the party
         }
-    }
-
-    isValid () {
-        return super.isValid();
     }
 }
 

@@ -5,11 +5,15 @@ class Game {
             this.world = description.world; // The world that this game takes place in
             this.gm = description.gm; // The Game Master of this game
         }
+        this.errors = [];
     }
 
     isValid ( ) {
-        // Return true if GM is not empty
-        // Return false if GM is empty
+        if (!this.gm) {
+            this.errors.push("Game must be assigned a Game Master.");
+        }
+
+        return this.errors.length <= 0;
     }
 }
 
