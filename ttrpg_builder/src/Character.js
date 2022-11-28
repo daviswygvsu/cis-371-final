@@ -57,6 +57,7 @@ class PC extends Character {
             this.errors.push("Character must have a user!");
         }
         
+        return (this.errors.length <= 0)&& super.isValid();
     }
 }
 
@@ -67,10 +68,6 @@ class NPC extends Character {
             this.home = description.home; // The place where this NPC typically resides
             this.known = description.known; // Whether or not this character is known by the party
         }
-    }
-
-    isValid () {
-        return super.isValid();
     }
 }
 
