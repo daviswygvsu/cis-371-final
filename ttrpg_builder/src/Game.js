@@ -6,6 +6,11 @@ class Game {
             this.gm = description.gm; // The Game Master of this game
         }
     }
+
+    isValid ( ) {
+        // Return true if GM is not empty
+        // Return false if GM is empty
+    }
 }
 
 module.exports = Game;
