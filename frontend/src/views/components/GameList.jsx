@@ -4,7 +4,7 @@ function GameList() {
     const [games, setGames] = useState([]);
 
     useEffect(() => {
-        fetch('/users/').then(res => {
+        fetch('/games/').then(res => {
             if (res.ok) {
                 return res.json()
             }
