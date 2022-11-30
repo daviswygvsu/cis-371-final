@@ -71,4 +71,4 @@ class NPC extends Character {
     }
 }
 
-module.exports = { Character, PC, NPC };
+module.exports = { PC, NPC };
