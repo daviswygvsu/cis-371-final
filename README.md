@@ -25,7 +25,8 @@ This is a single-page web application. It uses:
 * CSS for our style sheets
 * JavaScript as our scripting language
 * React.js as our front-end framework
-* TBH as our database
+* Express.js and Node.js make up our back-end framwork
+* SQLite as our database
 
 ## Authors
 * [Wyatt Davis](https://www.linkedin.com/in/wyattndavis/)
