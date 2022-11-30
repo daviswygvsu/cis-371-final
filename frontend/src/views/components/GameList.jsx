@@ -4,11 +4,11 @@ function GameList() {
     const [games, setGames] = useState([]);
 
     useEffect(() => {
-        fetch('/games/').then(res => {
+        fetch('/games').then(res => {
             if (res.ok) {
                 return res.json()
             }
-        }).then(jsonRes => setGames(jsonRes.games))
+        }).then(jsonRes => { setGames(jsonRes.games) })
     });
 
     return (<div>

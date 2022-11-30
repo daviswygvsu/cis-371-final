@@ -1,7 +1,9 @@
 const express = require('express');
-router = express.Router();
-GameController = require('../src/GameController');
+let router = express.Router();
+let GameDB = require('../GameDB');
 
-router.get('/', GameController.index);
+router.get('/', async (req, res) => {
+    res.json({'games' : await GameDB.allGames()});
+});
 
 module.exports = router;
