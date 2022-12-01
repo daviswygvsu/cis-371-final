@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import '../../styles/GameForm.css';
 
 function GameEdit ( ) {
 
     let { id } = useParams();
+    const navigate = useNavigate();
     const [game, setGame] = useState([]);
 
     useEffect(() => {
@@ -30,18 +31,18 @@ function GameEdit ( ) {
                 <td><input type = 'text' defaultValue = { game.gm } onChange = { ( e ) => game.gm = e.currentTarget.value }/></td>
             </tr>
         </table>
-        <button onClick={() => sigDel( game )}>Update</button>
+        <button onClick={() => sigDel( game, navigate )}>Update</button>
     </form>
     );
 }
 
-function sigDel( game ) {
+function sigDel( game, nav ) {
     fetch(`/games/update/${game.id}/`).then(res => {
         if (res.ok) {
             return res.json()
         }
     }).then(
-        jsonRes => { /* Navigate back to main page */ }
+        jsonRes => { nav ( `/games/`) }
     );
 }
 
