@@ -35,7 +35,7 @@ class PCDB {
         let newPC = new PC(description);
         if (newPC.isValid()) {
             return new Promise((resolve, reject) => {
-                this.db.run(`INSERT INTO PCs (name, portrait, game, level, xp, gp, user ) VALUES (${description.name}, ${description.portrait}, ${description.game}, ${description.level}, ${description.xp}, ${description.gp}, ${description.user} )`, 
+                this.db.run(`INSERT INTO PCs (name, portrait, game, level, xp, gp, user ) VALUES ("${newPC.name}", "${newPC.portrait}", "${newPC.game}", "${newPC.level}", "${newPC.xp}", "${newPC.gp}", "${newPC.user}" )`, 
                     function(err, data) {
                         newPC.id = this.lastID;
                         resolve(newPC);
@@ -47,7 +47,7 @@ class PCDB {
     }
 
     static update(pc) {
-        this.db.run(`UPDATE PCs SET name="${pc.name}", portrait="${pc.portrait}", game="${pc.game}", level="${pc.level}", xp="${pc.xp}", gp="${pc.gp}", user="${pc.user}" where id="${pc.id}`);
+        this.db.run(`UPDATE PCs SET name="${pc.name}", portrait="${pc.portrait}", game="${pc.game}", level="${pc.level}", xp="${pc.xp}", gp="${pc.gp}", user="${pc.user}" where id="${pc.id}" `);
     }
 }
 
@@ -86,7 +86,7 @@ class NPCDB {
         let newNPC = new NPC(description);
         if (newNPC.isValid()) {
             return new Promise((resolve, reject) => {
-                this.db.run(`INSERT INTO PCs (name, portrait, game, home, known ) VALUES (${description.name}, ${description.portrait}, ${description.game}, ${description.home}, ${description.known} )`, 
+                this.db.run(`INSERT INTO PCs (name, portrait, game, home, known ) VALUES ("${newNPC.name}", "${newNPC.portrait}", "${newNPC.game}", "${newNPC.home}", "${newNPC.known}" )`, 
                     function(err, data) {
                         newNPC.id = this.lastID;
                         resolve(newNPC);
@@ -98,7 +98,7 @@ class NPCDB {
     }
 
     static update(npc) {
-        this.db.run(`UPDATE PCs SET name="${npc.name}", portrait="${npc.portrait}", game="${npc.game}", home="${npc.home}", known="${npc.known}" where id="${npc.id}`);
+        this.db.run(`UPDATE PCs SET name="${npc.name}", portrait="${npc.portrait}", game="${npc.game}", home="${npc.home}", known="${npc.known}" where id="${npc.id}" `);
     }
 }
 

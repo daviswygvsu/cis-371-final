@@ -48,7 +48,7 @@ class GameDB {
     }
 
     static update(game) {
-        this.db.run(`UPDATE Games SET name="${game.name}", world="${game.world}", gm="${game.gm}" where id="${game.id}`);
+        this.db.run(`UPDATE Games SET name="${game.name}", world="${game.world}", gm="${game.gm}" where id="${game.id}" `);
     }
 }
 
