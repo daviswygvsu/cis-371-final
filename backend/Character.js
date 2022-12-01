@@ -15,11 +15,6 @@ class Character {
             this.errors.push("Character must have a name!");
         }
 
-        //Return false if the character does not have a description
-        if(!this.description){
-            this.errors.push("Your character must have a description!(A single sentence works)");
-        }
-
         //Return false if the character does not have an assigned game
         if(!this.game){
             this.errors.push("Character does not have an assigned game!");
@@ -36,7 +31,6 @@ class PC extends Character {
             this.level = description.level; // This character's in-game level
             this.xp = description.xp; // The amount of experience this character has
             this.gp = description.gp; // The amount of gold points this character has
-            this.inventory = description.inventory; // The item's in this player's inventory
             this.user = description.user; // The user playing this character
         }
         this.errors = [];

@@ -19,6 +19,7 @@ function GameList() {
             <th>Name</th>
             <th>World</th>
             <th>GM</th>
+            <th></th>
         </tr>
         { games.map ( ( game ) => <Game game = { game } /> ) }
     </table>);
