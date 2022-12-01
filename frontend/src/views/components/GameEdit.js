@@ -30,8 +30,18 @@ function GameEdit ( ) {
                 <td><input type = 'text' defaultValue = { game.gm } onChange = { ( e ) => game.gm = e.currentTarget.value }/></td>
             </tr>
         </table>
-        <button>Update</button>
+        <button onClick={() => sigDel( game )}>Update</button>
     </form>
+    );
+}
+
+function sigDel( game ) {
+    fetch(`/games/update/${game.id}/`).then(res => {
+        if (res.ok) {
+            return res.json()
+        }
+    }).then(
+        jsonRes => { /* Navigate back to main page */ }
     );
 }
 

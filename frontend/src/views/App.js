@@ -1,5 +1,5 @@
 import GameList from './components/GameList';
-import GameForm from './components/GameForm';
+import GameEdit from './components/GameEdit';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         <hr />
         <Routes>
           <Route path='/games/' element={<GameList />} />
-          <Route path='/games/edit/:id' element={<GameForm/>}/>
+          <Route path='/games/edit/:id' element={<GameEdit/>}/>
         </Routes>
         
       </div> 
