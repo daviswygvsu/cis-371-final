@@ -67,7 +67,7 @@ class NPCDB {
             this.db.all(`SELECT * from NPCs`, (err, response) => {
                 let arrayRes = response.map(item => new NPC(item));
                 resolve(arrayRes);
-            });
+            })
         });
     }
 
@@ -79,7 +79,7 @@ class NPCDB {
                 } else {
                     reject(`ID ${id} not found`);
                 }
-            });
+            })
         });
     }
 
@@ -91,7 +91,7 @@ class NPCDB {
                     function(err, data) {
                         newNPC.id = this.lastID;
                         resolve(newNPC);
-                    });
+                    })
             });
         } else {
             return newNPC;

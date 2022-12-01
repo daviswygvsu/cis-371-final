@@ -12,9 +12,8 @@ router.get('/destroy/:id/', async (req, res) => {
     res.json({'games' : await GameDB.allGames()});
 });
 
-router.get('/edit/:id/', async (req, res) => {
-    console.log('We should be editing something');
-    res.json({'games' : await GameDB.allGames()});
+router.get('/:id/', async (req, res) => {
+    res.json({'game' : await GameDB.find(req.params.id)});
 });
 
 module.exports = router;

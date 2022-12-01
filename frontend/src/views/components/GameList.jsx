@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Game from './Game';
 import '../../styles/GameList.css';
 
-function GameList() {
+function GameList( ) {
     const [games, setGames] = useState([]);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ function GameList() {
             <th>GM</th>
             <th></th>
         </tr>
-        { games.map ( ( game ) => <Game game = { game} update = { setGames } /> ) }
+        { games.map ( ( game ) => <Game game = { game } update = { setGames }/> ) }
     </table>);
 }
 

@@ -16,7 +16,7 @@ class GameDB {
             this.db.all(`SELECT * from Games`, (err, response) => {
                 let arrayRes = response.map(item => new Game(item));
                 resolve(arrayRes);
-            });
+            })
         });
     }
 
@@ -28,8 +28,8 @@ class GameDB {
                 } else {
                     reject(`ID ${id} not found`);
                 }
-            });
-        });
+            })
+        })
     }
 
     static create(description) {
@@ -40,8 +40,8 @@ class GameDB {
                     function(err, data) {
                         newGame.id = this.lastID;
                         resolve(newGame);
-                    });
-            });
+                    })
+            })
         } else {
             return newGame;
         }
