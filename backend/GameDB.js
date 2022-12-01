@@ -50,6 +50,10 @@ class GameDB {
     static update(game) {
         this.db.run(`UPDATE Games SET name="${game.name}", world="${game.world}", gm="${game.gm}" where id="${game.id}" `);
     }
+
+    static destroy(id) {
+        this.db.run(`DELETE FROM Games WHERE (id == ${id})`);
+    }
 }
 
 GameDB.db = new sqlite3.Database('games.sqlite');

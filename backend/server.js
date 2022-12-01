@@ -4,6 +4,6 @@ const app = express();
 
 app.use('/games', require('./routes/GameRoute'));
 
-// app.use('/characters', require('./routes/CharacterRoute'));
+app.use('/characters', require('./routes/CharacterRoute'));
 
 app.listen(3001, function() { console.log("Express server is running!"); });

@@ -11,7 +11,7 @@ function GameList() {
                 return res.json()
             }
         }).then(jsonRes => { setGames(jsonRes.games) })
-    });
+    }, []);
 
     return (
     <table className = 'list'>
@@ -21,7 +21,7 @@ function GameList() {
             <th>GM</th>
             <th></th>
         </tr>
-        { games.map ( ( game ) => <Game game = { game } /> ) }
+        { games.map ( ( game ) => <Game game = { game} update = { setGames } /> ) }
     </table>);
 }
 
