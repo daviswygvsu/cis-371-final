@@ -1,4 +1,5 @@
-let { Character, PC, NPC } = require()
+var sqlite3 = require('sqlite3').verbose();
+let { Character, PC, NPC } = require('./Character');
 
 class PCDB {
     static initialize() {
@@ -102,6 +103,8 @@ class NPCDB {
     }
 }
 
-PCDB.db, NPCDB.db = new sqlite3.Database('characters.sqlite');
+PCDB.db = new sqlite3.Database('characters.sqlite');
+
+NPCDB.db = new sqlite3.Database('characters.sqlite');
 
 module.exports = { PCDB, NPCDB };
