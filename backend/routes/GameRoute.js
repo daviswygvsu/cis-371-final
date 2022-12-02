@@ -16,4 +16,12 @@ router.get('/:id/', async (req, res) => {
     res.json({'game' : await GameDB.find(req.params.id)});
 });
 
+router.post('/edit/:id/', async (req, res) => {
+    GameDB.update(req.body.game);
+});
+
+router.post('/create/', async (req, res) => {
+    GameDB.create(req.body.desc);
+});
+
 module.exports = router;

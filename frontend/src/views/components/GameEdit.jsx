@@ -5,7 +5,6 @@ import '../../styles/GameForm.css';
 function GameEdit ( ) {
 
     let { id } = useParams();
-    const navigate = useNavigate();
     const [game, setGame] = useState([]);
 
     useEffect(() => {
@@ -31,19 +30,18 @@ function GameEdit ( ) {
                 <td><input type = 'text' defaultValue = { game.gm } onChange = { ( e ) => game.gm = e.currentTarget.value }/></td>
             </tr>
         </table>
-        <button onClick={() => sigDel( game, navigate )}>Update</button>
+        <button onClick={() => { sigEdit( game ) } }>Update</button>
     </form>
     );
 }
 
-function sigDel( game, nav ) {
-    fetch(`/games/update/${game.id}/`).then(res => {
-        if (res.ok) {
-            return res.json()
-        }
-    }).then(
-        jsonRes => { nav ( `/games/`) }
-    );
+function sigEdit( game ) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'game' : game })
+    };
+    fetch(`/games/edit/${game.id}/`, requestOptions);
 }
 
 export default GameEdit;

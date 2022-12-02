@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import { redirect, useNavigate } from "react-router-dom";
 import Game from './Game';
 import '../../styles/GameList.css';
 
 function GameList( ) {
     const [games, setGames] = useState([]);
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         fetch('/games').then(res => {
@@ -13,8 +16,8 @@ function GameList( ) {
         }).then(jsonRes => { setGames(jsonRes.games) })
     }, []);
 
-    return (
-    <table className = 'list'>
+    return (<div className='list'>
+    <table>
         <tr>
             <th>Name</th>
             <th>World</th>
@@ -22,7 +25,9 @@ function GameList( ) {
             <th></th>
         </tr>
         { games.map ( ( game ) => <Game game = { game } update = { setGames }/> ) }
-    </table>);
+    </table>
+    <button onClick = {() => navigate(`/games/create`)}>Create</button>
+    </div>);
 }
 
 export default GameList;
