@@ -1,13 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import ReadGame from './ReadGame';
+import { redirect, useNavigate, useParams } from "react-router-dom";
+import Game from './Game';
 import '../../styles/GameList.css';
 
-function GameList( ) {
+function MyGames( ) {
+
+    let { id } = useParams();
     const [games, setGames] = useState([]);
 
+    let navigate = useNavigate();
 
     useEffect(() => {
-        fetch('/games').then(res => {
+        fetch(`/games/mine/${id}/`).then(res => {
             if (res.ok) {
                 return res.json()
             }
@@ -20,10 +24,12 @@ function GameList( ) {
             <th>Name</th>
             <th>World</th>
             <th>GM</th>
+            <th></th>
         </tr>
-        { games.map ( ( game ) => <ReadGame game = { game }/> ) }
+        { games.map ( ( game ) => <Game game = { game } update = { setGames }/> ) }
     </table>
+    <button onClick = {() => navigate(`/games/create/${id}`)}>Create</button>
     </div>);
 }
 
-export default GameList;
+export default MyGames;

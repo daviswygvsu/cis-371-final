@@ -7,9 +7,13 @@ router.get('/', async (req, res) => {
     res.json({'games' : await GameDB.allGames()});
 });
 
-router.get('/destroy/:id/', async (req, res) => {
+router.get('/mine/:id', async (req, res) => {
+    res.json({'games' : await GameDB.myGames(req.params.id)})
+});
+
+router.get('/destroy/:gm/:id/', async (req, res) => {
     GameDB.destroy(req.params.id);
-    res.json({'games' : await GameDB.allGames()});
+    res.json({'games' : await GameDB.myGames(req.params.gm)});
 });
 
 router.get('/:id/', async (req, res) => {

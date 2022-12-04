@@ -4,9 +4,11 @@ import '../../styles/GameForm.css';
 
 function GameCreate ( ) {
 
+    let { id } = useParams();
+
     let name = '';
     let world = '';
-    let gm = 0;
+    let gm = id;
     
 
     return (<form className = 'form'>
@@ -18,10 +20,6 @@ function GameCreate ( ) {
             <tr>
                 <td><label>World:</label></td>
                 <td><input type = 'text' onChange = { ( e ) => world = e.currentTarget.value }/></td>
-            </tr>
-            <tr>
-                <td><label>GM:</label></td>
-                <td><input type = 'text' onChange = { ( e ) => gm = e.currentTarget.value }/></td>
             </tr>
         </table>
         <button onClick={() => { sigCreate( { name : name, world : world, gm : gm } ) } }>Create</button>

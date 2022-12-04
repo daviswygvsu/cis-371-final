@@ -20,6 +20,15 @@ class GameDB {
         });
     }
 
+    static myGames(id) {
+        return new Promise((resolve, reject) => {
+            this.db.all(`SELECT * from Games where (gm == ${id})`, (err, res) => {
+                let arrayRes = res.map(item => new Game(item));
+                resolve(arrayRes);
+            })
+        });
+    }
+
     static find(id) {
         return new Promise((resolve, reject) => {
             this.db.all(`SELECT * from Games where (id == ${id})`, (err, rows) => {
