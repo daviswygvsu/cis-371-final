@@ -14,13 +14,13 @@ function PC (props ){
             <td>{props.pc.xp}</td>
             <td>{props.pc.gp}</td>
             <td>{props.pc.user}</td>
-            <button type = 'button' onClick = { () => { navigate(`/pcs/edit/${props.pc.id}`) } }>Edit</button> <button type = 'button' onClick = { () => { fetchDestroy( props.pc.user, props.pc.id, props.update ) } }>Destroy</button>
+            <button type = 'button' onClick = { () => { navigate(`/pcs/edit/${props.pc.id}`) } }>Edit</button> <button type = 'button' onClick = { () => { fetchDestroy( props.pc.id, props.update ) } }>Destroy</button>
         </tr>
     )
 }
 
-function fetchDestroy (user, id, update){
-    fetch(`/characters/destroy/${user}/${id}/`).then(res => {
+function fetchDestroy (id, update){
+    fetch(`/characters/destroy/${id}/`).then(res => {
         if (res.ok) {
             return res.json()
         }

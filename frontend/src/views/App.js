@@ -8,6 +8,7 @@ import PC from './components/PC';
 import PCList from './components/PCList';
 import MyPCs from './components/MyPCs';
 import PCEdit from './components/PCEdit';
+import PCCreate from './components/PCCreate';
 import NPCList from './components/NPCList';
 import MyNPCs from './components/MyNPCs';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
@@ -33,7 +34,7 @@ function App() {
             <Link to='/pcs/'> Browse PCs</Link>
           </li>
           <li>
-            <Link to='/pcs/mine/10'> My PCs</Link>
+            <Link to='/pcs/mine/'> My PCs</Link>
           </li>
           <li>
             <Link to='/npcs/'>Browse NPCs</Link>
@@ -53,7 +54,8 @@ function App() {
           <Route path='/login/' element={<Login />}/>
           <Route path='/pcs/' element={<PCList />}/>
           <Route path='/pcs/edit/:id' element={<PCEdit />}/>
-          <Route path='/pcs/mine/:id' element={<MyPCs />}/>
+          <Route path='/pcs/create/' element={<PCCreate />}/>
+          <Route path='/pcs/mine/' element={<MyPCs />}/>
           <Route path='/npcs/' element={<NPCList />}/>
           <Route path='/npcs/mine/:id' element={<MyNPCs />}/>
         </Routes>

@@ -5,9 +5,9 @@ class PCDB {
     static initialize() {
         this.db.serialize(() => {
             this.db.run(`CREATE TABLE PCs (id INTEGER PRIMARY KEY, name TEXT NOT NULL, portrait TEXT NOT NULL, game INTEGER NOT NULL, level INTEGER NOT NULL, xp INTEGER NOT NULL, gp INTEGER NOT NULL, user INTEGER NOT NULL);`);
-            this.db.run(`INSERT INTO PCs (name, portrait, game, level, xp, gp, user) VALUES ("Boromir", "my_file.gif", 1, 11, 4000, 47, 10);`);
-            this.db.run(`INSERT INTO PCs (name, portrait, game, level, xp, gp, user) VALUES ("Amongus Man", "his_file.png", 2, 12, 6000, 900, 20 );`);
-            this.db.run(`INSERT INTO PCs (name, portrait, game, level, xp, gp, user) VALUES ("Krusk the KTerrible", "their_file.png", 3, 15, 15000, 12, 30 );`);
+            this.db.run(`INSERT INTO PCs (name, portrait, game, level, xp, gp, user) VALUES ("Boromir", "my_file.gif", 1, 11, 4000, 47, 1);`);
+            this.db.run(`INSERT INTO PCs (name, portrait, game, level, xp, gp, user) VALUES ("Amongus Man", "his_file.png", 2, 12, 6000, 900, 2 );`);
+            this.db.run(`INSERT INTO PCs (name, portrait, game, level, xp, gp, user) VALUES ("Krusk the KTerrible", "their_file.png", 3, 15, 15000, 12, 3 );`);
         });
     }
 
@@ -59,6 +59,10 @@ class PCDB {
 
     static update(pc) {
         this.db.run(`UPDATE PCs SET name="${pc.name}", portrait="${pc.portrait}", game="${pc.game}", level="${pc.level}", xp="${pc.xp}", gp="${pc.gp}", user="${pc.user}" where id="${pc.id}" `);
+    }
+
+    static destroy(id) {
+        this.db.run(`DELETE FROM PCs WHERE (id == ${id});`);
     }
 }
 

@@ -11,7 +11,7 @@ function MyPCs( ) {
     let navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`/characters/pcs/mine/${id}/`).then(res => {
+        fetch(`/characters/pcs/mine/`).then(res => {
             if(res.ok) {
                 return res.json()
             }
@@ -32,7 +32,7 @@ function MyPCs( ) {
         </tr>
         { pcs.map ( ( pc ) => <PC pc = { pc } update = {setPCs} /> ) }
     </table>
-    <button onClick = {() => navigate(`/pcs/create/${id}`)}>Create</button>
+    <button onClick = {() => navigate(`/pcs/create/`)}>Create</button>
     </div>);
 }
 

@@ -1,26 +1,41 @@
 const express = require('express');
 let router = express.Router();
 let { PCDB, NPCDB } = require('../CharacterDB');
+let UserDB = require('../UserDB');
+
+function isAuthenticated(req, res, next) {
+
+    if (req.session.user) {
+        next()
+    } else {
+        console.log('Not logged in... You dingus')
+    }
+}
 
 router.get('/pcs/', async (req, res) => {
     res.json({'pcs' : await PCDB.all()});
 });
 
-router.get('/pcs/mine/:id', async (req, res) => {
-    res.json({'pcs' : await PCDB.myPCs(req.params.id)})
+router.get('/pcs/mine/', isAuthenticated, async (req, res) => {
+    res.json({'pcs' : await PCDB.myPCs(await UserDB.nameToID(req.session.user))});
 });
 
-router.get('/destroy/:user/:id/', async (req, res) => {
+router.get('/destroy/:id/',isAuthenticated, async (req, res) => {
     PCDB.destroy(req.params.id);
-    res.json({'pcs' : await PCDB.myPCs(req.params.user)});
+    res.json({'pcs' : await PCDB.myPCs(await UserDB.nameToID(req.session.user))});
 });
 
 router.get('/pcs/:id/', async (req, res) => {
     res.json({'pc' : await PCDB.find(req.params.id)});
 });
 
-router.post('/pcs/edit/:id/', async (req, res) => {
+router.post('/pcs/edit/:id/', isAuthenticated, async (req, res) => {
     PCDB.update(req.body.pc);
+});
+
+router.post('/pcs/create/', isAuthenticated, async (req, res) => {
+    let newDesc = {name : req.body.desc.name, portrait : req.body.desc.portrait, game : req.body.desc.game, level : req.body.desc.level, xp : req.body.desc.xp , gp : req.body.desc.gp, user : await UserDB.nameToID(req.session.user) }
+    PCDB.create(newDesc);
 });
 
 router.get('/npcs', async (req, res) => {
