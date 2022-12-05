@@ -20,6 +20,26 @@ function PCEdit ( ) {
                 <td><label>Name:</label></td>
                 <td><input type = 'text' defaultValue = {pc.name} onChange = { ( e ) => pc.name = e.currentTarget.value}/></td>
             </tr>
+            <tr>
+                <td><label>Portrait:</label></td>
+                <td><input type = 'text' defaultValue = {pc.portrait} onChange = { ( e ) => pc.portrait = e.currentTarget.value}/></td>
+            </tr>
+            <tr>
+                <td><label>Game:</label></td>
+                <td><input type = 'text' defaultValue = {pc.game} onChange = { ( e ) => pc.game = e.currentTarget.value}/></td>
+            </tr>
+            <tr>
+                <td><label>Level:</label></td>
+                <td><input type = 'text' defaultValue = {pc.level} onChange = { ( e ) => pc.level = e.currentTarget.value}/></td>
+            </tr>
+            <tr>
+                <td><label>XP:</label></td>
+                <td><input type = 'text' defaultValue = {pc.xp} onChange = { ( e ) => pc.xp = e.currentTarget.value}/></td>
+            </tr>
+            <tr>
+                <td><label>GP:</label></td>
+                <td><input type = 'text' defaultValue = {pc.gp} onChange = { ( e ) => pc.gp = e.currentTarget.value}/></td>
+            </tr>
         </table>
         <button onClick={() => { sigEdit( pc ) } }>Update</button>
     </form>
