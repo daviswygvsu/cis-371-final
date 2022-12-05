@@ -25,10 +25,6 @@ function GameEdit ( ) {
                 <td><label>World:</label></td>
                 <td><input type = 'text' defaultValue = { game.world } onChange = { ( e ) => game.world = e.currentTarget.value }/></td>
             </tr>
-            <tr>
-                <td><label>GM:</label></td>
-                <td><input type = 'text' defaultValue = { game.gm } onChange = { ( e ) => game.gm = e.currentTarget.value }/></td>
-            </tr>
         </table>
         <button onClick={() => { sigEdit( game ) } }>Update</button>
     </form>

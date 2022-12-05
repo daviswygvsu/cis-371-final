@@ -27,7 +27,7 @@ function App() {
             <Link to='/games/'>Browse Games</Link>
           </li>
           <li>
-            <Link to='/games/mine/2'>My Games</Link>
+            <Link to='/games/mine/'>My Games</Link>
           </li>
           <li>
             <Link to='/pcs/'> Browse PCs</Link>
@@ -39,7 +39,7 @@ function App() {
             <Link to='/npcs/'>Browse NPCs</Link>
           </li>
           <li>
-            <Link to='/npcs/mine/2'>My NPCs</Link>
+            <Link to='/npcs/mine/'>My NPCs</Link>
           </li>
         </ul>
 
@@ -48,8 +48,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/games/' element={<GameList />} />
           <Route path='/games/edit/:id' element={<GameEdit />}/>
-          <Route path='/games/create/:id' element={<GameCreate />}/>
-          <Route path='/games/mine/:id' element={<MyGames />}/>
+          <Route path='/games/create/' element={<GameCreate />}/>
+          <Route path='/games/mine/' element={<MyGames />}/>
           <Route path='/login/' element={<Login />}/>
           <Route path='/pcs/' element={<PCList />}/>
           <Route path='/pcs/edit/:id' element={<PCEdit />}/>

@@ -24,14 +24,25 @@ class UserDB {
     }
 
     static isUser( desc ) {
-        console.log(desc.name + " is trying to log in!");
-
         return new Promise((resolve, reject) => {
             this.db.all(`SELECT * from Users where (name == "${desc.name}") AND (password == "${desc.password}")`, (err, rows) => { 
                 if (rows.length >= 1) {
                     resolve(true);
                 } else {
                     resolve(false);
+                }
+            })
+        });
+    }
+
+    static nameToID( name ) {
+        return new Promise((resolve, reject) => {
+            this.db.all(`SELECT * from Users where (name == "${name}")`, (err, rows) => { 
+                if (rows.length >= 1) {
+                    let thisUser = new User(rows[0]);
+                    resolve(thisUser.id);
+                } else {
+                    reject(`User ${name} not found`);
                 }
             })
         });

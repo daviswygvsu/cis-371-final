@@ -5,13 +5,12 @@ import '../../styles/GameList.css';
 
 function MyGames( ) {
 
-    let { id } = useParams();
     const [games, setGames] = useState([]);
 
     let navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`/games/mine/${id}/`).then(res => {
+        fetch(`/games/mine/`).then(res => {
             if (res.ok) {
                 return res.json()
             }
@@ -28,7 +27,7 @@ function MyGames( ) {
         </tr>
         { games.map ( ( game ) => <Game game = { game } update = { setGames }/> ) }
     </table>
-    <button onClick = {() => navigate(`/games/create/${id}`)}>Create</button>
+    <button onClick = {() => navigate(`/games/create/`)}>Create</button>
     </div>);
 }
 
