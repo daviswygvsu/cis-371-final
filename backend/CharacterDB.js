@@ -103,8 +103,8 @@ class NPCDB {
     }
 }
 
-PCDB.db = new sqlite3.Database('characters.sqlite');
+PCDB.db = new sqlite3.Database('pcs.sqlite');
 
-NPCDB.db = new sqlite3.Database('characters.sqlite');
+NPCDB.db = new sqlite3.Database('npcs.sqlite');
 
 module.exports = { PCDB, NPCDB };
