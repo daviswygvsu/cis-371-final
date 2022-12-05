@@ -37,7 +37,7 @@ function sigEdit( game ) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'game' : game })
     };
-    fetch(`/games/edit/${game.id}/`, requestOptions);
+    fetch(`/games/edit/`, requestOptions);
 }
 
 export default GameEdit;

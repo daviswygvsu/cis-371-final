@@ -30,7 +30,7 @@ router.get('/:id/', async (req, res) => {
     res.json({'game' : await GameDB.find(req.params.id)});
 });
 
-router.post('/edit/:id/', async (req, res) => {
+router.post('/edit/', isAuthenticated, async (req, res) => {
     GameDB.update(req.body.game);
 });
 

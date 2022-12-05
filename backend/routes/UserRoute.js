@@ -17,4 +17,8 @@ router.post('/login', async (req, res, next) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    res.json({'user' : await UserDB.find(req.params.id)});
+});
+
 module.exports = router;
