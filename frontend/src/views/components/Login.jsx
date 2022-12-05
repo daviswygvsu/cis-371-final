@@ -15,7 +15,7 @@ function Login ( ) {
         fetch(`/users/login/`, requestOptions);
     }
 
-    return (<form className = 'form'>
+    return (<form className = 'form' action='http://localhost:3000/'>
         <table>
             <tr>
                 <td><label>Username:</label></td>
@@ -26,7 +26,7 @@ function Login ( ) {
                 <td><input type = 'password' onChange = { ( e ) => password = e.currentTarget.value }/></td>
             </tr>
         </table>
-        <button onClick = { () => handleClick( { name : name, password : password } )}>Log in</button>
+        <button type = 'submit' onClick = { () => handleClick( { name : name, password : password } )}>Log in</button>
     </form>
     );
 }

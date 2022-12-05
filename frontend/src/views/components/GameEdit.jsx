@@ -15,7 +15,7 @@ function GameEdit ( ) {
         }).then(jsonRes => { setGame(jsonRes.game) })
     }, []);
 
-    return (<form className = 'form'>
+    return (<form className = 'form' action = 'http://localhost:3000/games/mine'>
         <table>
             <tr>
                 <td><label>Name:</label></td>
@@ -26,7 +26,7 @@ function GameEdit ( ) {
                 <td><input type = 'text' defaultValue = { game.world } onChange = { ( e ) => game.world = e.currentTarget.value }/></td>
             </tr>
         </table>
-        <button onClick={() => { sigEdit( game ) } }>Update</button>
+        <button type = 'submit' onClick={() => { sigEdit( game ) } }>Update</button>
     </form>
     );
 }
