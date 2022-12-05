@@ -3,6 +3,7 @@ import GameEdit from './components/GameEdit';
 import GameCreate from './components/GameCreate';
 import MyGames from './components/MyGames';
 import Home from './components/Home';
+import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
         <ul>
           <li>
             <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/login'>Log in</Link>
           </li>
           <li>
             <Link to='/games/'>Browse Games</Link>
@@ -28,6 +32,7 @@ function App() {
           <Route path='/games/edit/:id' element={<GameEdit />}/>
           <Route path='/games/create/:id' element={<GameCreate />}/>
           <Route path='/games/mine/:id' element={<MyGames />}/>
+          <Route path='/login/' element={<Login />}/>
         </Routes>
         
       </div> 
