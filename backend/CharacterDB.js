@@ -1,5 +1,5 @@
 var sqlite3 = require('sqlite3').verbose();
-let { Character, PC, NPC } = require('./Character');
+let {PC, NPC } = require('./Character');
 
 class PCDB {
     static initialize() {
@@ -16,7 +16,16 @@ class PCDB {
             this.db.all(`SELECT * from PCs`, (err, response) => {
                 let arrayRes = response.map(item => new PC(item));
                 resolve(arrayRes);
-            });
+            })
+        });
+    }
+
+    static myPCs(id) {
+        return new Promise((resolve, reject) => {
+            this.db.all(`SELECT * from PCs where (user == ${id})`, (err, res) => {
+                let arrayRes = res.map(item => new PC(item));
+                resolve(arrayRes);
+            })
         });
     }
 
@@ -43,6 +52,7 @@ class PCDB {
                     });
             });
         } else {
+            console.log("worked");
             return newPC;
         }
     }
@@ -66,6 +76,15 @@ class NPCDB {
         return new Promise((resolve, reject) => {
             this.db.all(`SELECT * from NPCs`, (err, response) => {
                 let arrayRes = response.map(item => new NPC(item));
+                resolve(arrayRes);
+            })
+        });
+    }
+
+    static myNPCs(id) {
+        return new Promise((resolve, reject) => {
+            this.db.all(`SELECT * from NPCs where (game == ${id})`, (err, res) => {
+                let arrayRes = res.map(item => new NPC(item));
                 resolve(arrayRes);
             })
         });
@@ -103,8 +122,8 @@ class NPCDB {
     }
 }
 
-PCDB.db = new sqlite3.Database('characters.sqlite');
+PCDB.db = new sqlite3.Database('pcs.sqlite');
 
-NPCDB.db = new sqlite3.Database('characters.sqlite');
+NPCDB.db = new sqlite3.Database('npcs.sqlite');
 
 module.exports = { PCDB, NPCDB };
