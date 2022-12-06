@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { redirect, useNavigate, useParams } from "react-router-dom";
 import Game from './Game';
-import '../../styles/GameList.css';
 
 function MyGames( ) {
 

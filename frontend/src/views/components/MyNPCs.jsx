@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { redirect, useNavigate, useParams } from "react-router-dom";
 import NPC from './NPC';
-import '../../styles/NPCList.css';
 
 function MyNPCs( ) {
 

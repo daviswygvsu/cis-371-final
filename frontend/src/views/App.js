@@ -4,7 +4,6 @@ import GameCreate from './components/GameCreate';
 import MyGames from './components/MyGames';
 import Home from './components/Home';
 import Login from './components/Login';
-import PC from './components/PC';
 import PCList from './components/PCList';
 import MyPCs from './components/MyPCs';
 import PCEdit from './components/PCEdit';
@@ -36,12 +35,6 @@ function App() {
           <li>
             <Link to='/pcs/mine/'> My PCs</Link>
           </li>
-          <li>
-            <Link to='/npcs/'>Browse NPCs</Link>
-          </li>
-          <li>
-            <Link to='/npcs/mine/'>My NPCs</Link>
-          </li>
         </ul>
 
         <hr />
@@ -54,7 +47,7 @@ function App() {
           <Route path='/login/' element={<Login />}/>
           <Route path='/pcs/' element={<PCList />}/>
           <Route path='/pcs/edit/:id' element={<PCEdit />}/>
-          <Route path='/pcs/create/' element={<PCCreate />}/>
+          <Route path='/pcs/create/:gid' element={<PCCreate />}/>
           <Route path='/pcs/mine/' element={<MyPCs />}/>
           <Route path='/npcs/' element={<NPCList />}/>
           <Route path='/npcs/mine/:id' element={<MyNPCs />}/>

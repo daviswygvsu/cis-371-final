@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import ReadPC from './ReadPC';
-import '../../styles/PCList.css';
 
 function PCList( ) {
     const[pcs, setPCs] = useState([]);

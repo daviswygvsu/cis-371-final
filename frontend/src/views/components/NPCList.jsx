@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import ReadNPC from './ReadNPC';
-import '../../styles/NPCList.css';
 
 function NPCList( ) {
     const[npcs, setNPCs] = useState([]);
