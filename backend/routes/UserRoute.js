@@ -17,6 +17,11 @@ router.post('/login', async (req, res, next) => {
     }
 });
 
+router.post('/create', async (req, res, next) => {
+    UserDB.create(req.body.desc);
+    console.log("User has signed up!");
+});
+
 router.get('/:id', async (req, res) => {
     res.json({'user' : await UserDB.find(req.params.id)});
 });

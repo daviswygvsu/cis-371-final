@@ -4,6 +4,7 @@ import GameCreate from './components/GameCreate';
 import MyGames from './components/MyGames';
 import Home from './components/Home';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import PCList from './components/PCList';
 import MyPCs from './components/MyPCs';
 import PCEdit from './components/PCEdit';
@@ -22,6 +23,9 @@ function App() {
           </li>
           <li>
             <Link to='/login'>Log in</Link>
+          </li>
+          <li>
+            <Link to='/signup/'>Sign up</Link>
           </li>
           <li>
             <Link to='/games/'>Browse Games</Link>
@@ -45,6 +49,7 @@ function App() {
           <Route path='/games/create/' element={<GameCreate />}/>
           <Route path='/games/mine/' element={<MyGames />}/>
           <Route path='/login/' element={<Login />}/>
+          <Route path='/signup/' element={<Signup />}/>
           <Route path='/pcs/' element={<PCList />}/>
           <Route path='/pcs/edit/:id' element={<PCEdit />}/>
           <Route path='/pcs/create/:gid' element={<PCCreate />}/>
