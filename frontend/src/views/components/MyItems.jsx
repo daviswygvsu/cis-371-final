@@ -9,7 +9,7 @@ function MyItems( props ){
     let navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`/items/`).then(res => {
+        fetch(`/items/${props.user}`).then(res => {
             if(res.ok){
                 return res.json()
             }
@@ -26,7 +26,7 @@ function MyItems( props ){
             <th>Value</th>
             <th>Desc</th>
         </tr>
-        { items.map ( ( item ) => <Item item = { item } /> ) }
+        { items.map ( ( item ) => <Item item = { item } update = { setItems }/> ) }
     </table>
     <button onClick = {() => navigate(`/items/create/${props.user}`)}>Create</button>
     </div></>);
