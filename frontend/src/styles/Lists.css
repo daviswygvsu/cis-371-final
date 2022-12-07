@@ -46,3 +46,7 @@ button {
 td {
     width: 150px;
 }
+
+* {
+    font-family: Papyrus, Fantasy, serif;
+}
