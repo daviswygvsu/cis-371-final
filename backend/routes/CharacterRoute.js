@@ -40,10 +40,15 @@ router.post('/pcs/create/', isAuthenticated, async (req, res) => {
 
 router.get('/npcs', async (req, res) => {
     res.json({'npcs' : await NPCDB.all()});
-})
+});
 
-router.get('/npcs/mine/:id', async (req, res) => {
+router.get('/npcs/:id/', isAuthenticated, async (req, res) => {
     res.json({'npcs' : await NPCDB.myNPCs(req.params.id)})
+});
+
+router.post('/npcs/create/', isAuthenticated, async (req, res) => {
+    NPCDB.create(req.body.desc);
+    console.log(req.body.desc);
 });
 
 module.exports = router;

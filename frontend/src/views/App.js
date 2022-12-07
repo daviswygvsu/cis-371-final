@@ -9,6 +9,7 @@ import PCList from './components/PCList';
 import MyPCs from './components/MyPCs';
 import PCEdit from './components/PCEdit';
 import PCCreate from './components/PCCreate';
+import NPCCreate from './components/NPCCreate';
 import NPCList from './components/NPCList';
 import MyNPCs from './components/MyNPCs';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
@@ -45,7 +46,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/games/' element={<GameList />} />
-          <Route path='/games/edit/:id' element={<GameEdit />}/>
+          <Route path='/games/edit/:gid' element={<GameEdit />}/>
           <Route path='/games/create/' element={<GameCreate />}/>
           <Route path='/games/mine/' element={<MyGames />}/>
           <Route path='/login/' element={<Login />}/>
@@ -56,8 +57,8 @@ function App() {
           <Route path='/pcs/mine/' element={<MyPCs />}/>
           <Route path='/npcs/' element={<NPCList />}/>
           <Route path='/npcs/mine/:id' element={<MyNPCs />}/>
+          <Route path='/npcs/create/:gid' element={<NPCCreate />}/>
         </Routes>
-        
       </div> 
     </Router>
   );

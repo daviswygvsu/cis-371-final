@@ -110,7 +110,7 @@ class NPCDB {
         let newNPC = new NPC(description);
         if (newNPC.isValid()) {
             return new Promise((resolve, reject) => {
-                this.db.run(`INSERT INTO PCs (name, portrait, game, home, known ) VALUES ("${newNPC.name}", "${newNPC.portrait}", "${newNPC.game}", "${newNPC.home}", "${newNPC.known}" )`, 
+                this.db.run(`INSERT INTO NPCs (name, portrait, game, home, known ) VALUES ("${newNPC.name}", "${newNPC.portrait}", "${newNPC.game}", "${newNPC.home}", "${newNPC.known}" )`, 
                     function(err, data) {
                         newNPC.id = this.lastID;
                         resolve(newNPC);
@@ -123,6 +123,10 @@ class NPCDB {
 
     static update(npc) {
         this.db.run(`UPDATE PCs SET name="${npc.name}", portrait="${npc.portrait}", game="${npc.game}", home="${npc.home}", known="${npc.known}" where id="${npc.id}" `);
+    }
+
+    static destroy(id) {
+        this.db.run(`DELETE FROM NPCs WHERE (id == ${id});`);
     }
 }
 
