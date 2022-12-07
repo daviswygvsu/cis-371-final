@@ -22,9 +22,9 @@ router.post('/edit/', async (req, res) => {
     ItemDB.update(req.body.item);
 });
 
-router.get('/destroy/:id/', async (req, res) => {
+router.get('/destroy/:id/:pcid', async (req, res) => {
     ItemDB.destroy(req.params.id);
-    res.json({'items' : await ItemDB.all()});
+    res.json({'items' : await ItemDB.myItems(req.params.pcid)});
 });
 
 module.exports = router;

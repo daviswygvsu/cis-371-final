@@ -10,7 +10,9 @@ function ItemCreate ( ) {
     let value = 0;
     let desc = '';
 
-    return(<form className = 'form' action = 'http://localhost:3000/'>
+    return(<>
+    <h1>Create an Item</h1>
+    <form className = 'form' action = 'http://localhost:3000/'>
         <table>
             <tr>
                 <td><label>Name: </label></td>
@@ -27,7 +29,7 @@ function ItemCreate ( ) {
         </table>
         <button onClick={() => { sigCreate( {name : name, owner : pcid, value : value, desc : desc})}}> Create </button>
     </form>
-    );
+    </>);
 }
 
 function sigCreate( desc ) {

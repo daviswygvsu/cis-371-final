@@ -11,13 +11,13 @@ function Item (props) {
             <td>{props.item.owner}</td>
             <td>{props.item.value}</td>
             <td>{props.item.desc}</td>
-            <button type = 'button' onClick = { () => { navigate(`/items/edit/${props.item.id}/`) } }>Edit</button> <button type = 'button' onClick = { () => { fetchDestroy( props.item.id, props.update ) } }>Destroy</button>
+            <button type = 'button' onClick = { () => { navigate(`/items/edit/${props.item.id}/`) } }>Edit</button> <button type = 'button' onClick = { () => { fetchDestroy( props.item.id, props.item.owner, props.update ) } }>Destroy</button>
         </tr>
     );
 }
 
-function fetchDestroy ( id, update ) {
-    fetch(`/items/destroy/${id}/`).then(res => {
+function fetchDestroy ( id, pc, update ) {
+    fetch(`/items/destroy/${id}/${pc}/`).then(res => {
         if (res.ok) {
             return res.json()
         }

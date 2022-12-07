@@ -14,7 +14,9 @@ function ItemEdit ( ) {
         }).then(jsonRes => { setItem(jsonRes.item) })
     }, []);
 
-    return(<form className = 'form' action = 'http://localhost:3000/'>
+    return(<>
+    <h1>Edit Item</h1>
+    <form className = 'form' action = 'http://localhost:3000/'>
         <table>
             <tr>
                 <td><label>Name: </label></td>
@@ -31,7 +33,7 @@ function ItemEdit ( ) {
         </table>
         <button onClick={() => { sigEdit( item )}}> Update </button>
     </form>
-    );
+    </>);
 }
 
 function sigEdit( item ) {
