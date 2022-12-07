@@ -20,4 +20,6 @@ app.use('/characters', require('./routes/CharacterRoute'));
 
 app.use('/users', require('./routes/UserRoute'));
 
+app.use('/items', require('./routes/ItemRoute'));
+
 app.listen(3001, function() { console.log("Express server is running!"); });

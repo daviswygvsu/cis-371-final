@@ -12,6 +12,9 @@ import PCCreate from './components/PCCreate';
 import NPCCreate from './components/NPCCreate';
 import NPCList from './components/NPCList';
 import MyNPCs from './components/MyNPCs';
+import MyItems from './components/MyItems';
+import ItemCreate from './components/ItemCreate';
+import ItemEdit from './components/ItemEdit';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
 
 function App() {
@@ -58,6 +61,8 @@ function App() {
           <Route path='/npcs/' element={<NPCList />}/>
           <Route path='/npcs/mine/:id' element={<MyNPCs />}/>
           <Route path='/npcs/create/:gid' element={<NPCCreate />}/>
+          <Route path='/items/create/:pcid' element={<ItemCreate />}/>
+          <Route path='/items/edit/:id' element={<ItemEdit />}/>
         </Routes>
       </div> 
     </Router>

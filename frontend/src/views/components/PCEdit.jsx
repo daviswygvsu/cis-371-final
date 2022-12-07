@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Items from './MyItems.jsx';
 
 function PCEdit ( ) {
     let { id } = useParams();
@@ -37,6 +38,7 @@ function PCEdit ( ) {
             </tr>
         </table>
         <button onClick={() => { sigEdit( pc ) } }>Update</button>
+        <Items user = {id}/>
     </form>
     );
 }
