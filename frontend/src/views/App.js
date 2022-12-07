@@ -13,36 +13,33 @@ import NPCCreate from './components/NPCCreate';
 import NPCList from './components/NPCList';
 import MyNPCs from './components/MyNPCs';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
+import '../styles/Lists.css';
 
 function App() {
   return (
     <Router>
       <div>
-        <ul>
-          <li>
+          <span className='tab'>
             <Link to='/'>Home</Link>
-          </li>
-          <li>
+          </span>
+          <span className='tab'>
             <Link to='/login'>Log in</Link>
-          </li>
-          <li>
+          </span>
+          <span className='tab'>
             <Link to='/signup/'>Sign up</Link>
-          </li>
-          <li>
+          </span>
+          <span className='tab'>
             <Link to='/games/'>Browse Games</Link>
-          </li>
-          <li>
+          </span>
+          <span className='tab'>
             <Link to='/games/mine/'>My Games</Link>
-          </li>
-          <li>
+          </span>
+          <span className='tab'>
             <Link to='/pcs/'> Browse PCs</Link>
-          </li>
-          <li>
+          </span>
+          <span className='tab'>
             <Link to='/pcs/mine/'> My PCs</Link>
-          </li>
-        </ul>
-
-        <hr />
+          </span>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/games/' element={<GameList />} />
@@ -59,7 +56,8 @@ function App() {
           <Route path='/npcs/mine/:id' element={<MyNPCs />}/>
           <Route path='/npcs/create/:gid' element={<NPCCreate />}/>
         </Routes>
-      </div> 
+      </div>
+
     </Router>
   );
 }

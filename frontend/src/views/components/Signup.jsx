@@ -14,7 +14,9 @@ function Signup ( ) {
         fetch(`/users/create/`, requestOptions);
     }
 
-    return (<form className = 'form' action='http://localhost:3000/'>
+    return (<>
+    <h1>Sign Up</h1>
+    <form className = 'form' action='http://localhost:3000/'>
         <table>
             <tr>
                 <td><label>Username:</label></td>
@@ -27,7 +29,7 @@ function Signup ( ) {
         </table>
         <button type = 'submit' onClick = { () => handleClick( { name : name, password : password } )}>Sign Up</button>
     </form>
-    );
+    </>);
 }
 
 export default Signup;

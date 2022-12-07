@@ -25,6 +25,11 @@ router.get('/destroy/:id/',isAuthenticated, async (req, res) => {
     res.json({'pcs' : await PCDB.myPCs(await UserDB.nameToID(req.session.user))});
 });
 
+router.get('/destroy/:game/:id/', isAuthenticated, async (req, res) => {
+    NPCDB.destroy(req.params.id);
+    res.json({'npcs' : await NPCDB.myNPCs(req.params.game)});
+});
+
 router.get('/pcs/:id/', async (req, res) => {
     res.json({'pc' : await PCDB.find(req.params.id)});
 });

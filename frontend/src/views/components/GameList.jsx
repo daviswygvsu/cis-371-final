@@ -13,7 +13,8 @@ function GameList( ) {
         }).then(jsonRes => { setGames(jsonRes.games) })
     }, []);
 
-    return (<div className='list'>
+    return (<><h1>Browse Games</h1>
+    <div className='list'>
     <table>
         <tr>
             <th>Name</th>
@@ -22,7 +23,7 @@ function GameList( ) {
         </tr>
         { games.map ( ( game ) => <ReadGame game = { game }/> ) }
     </table>
-    </div>);
+    </div></>);
 }
 
 export default GameList;

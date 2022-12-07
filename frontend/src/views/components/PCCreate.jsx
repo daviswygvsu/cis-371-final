@@ -12,7 +12,9 @@ function PCCreate ( ) {
     let xp = 0;
     let gp = 0;
 
-    return(<form className = 'form' action = 'http://localhost:3000/pcs/mine/'>
+    return(<>
+    <h1>Create a PC</h1>
+    <form className = 'form' action = 'http://localhost:3000/pcs/mine/'>
         <table>
             <tr>
                 <td><label>Name: </label></td>
@@ -37,7 +39,7 @@ function PCCreate ( ) {
         </table>
         <button onClick={() => { sigCreate( {name : name, portrait : portrait, game : game, level : level, xp : xp, gp : gp})}}> Create </button>
     </form>
-    );
+    </>);
 }
 
 

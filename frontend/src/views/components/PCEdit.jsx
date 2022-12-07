@@ -13,7 +13,9 @@ function PCEdit ( ) {
         }).then(jsonRes => { setPC(jsonRes.pc) })
     }, []);
 
-    return (<form className = 'form'>
+    return (<>
+    <h1>Edit a PC</h1>
+    <form className = 'form'>
         <table>
             <tr>
                 <td><label>Name:</label></td>
@@ -38,7 +40,7 @@ function PCEdit ( ) {
         </table>
         <button onClick={() => { sigEdit( pc ) } }>Update</button>
     </form>
-    );
+    </>);
 }
 
 function sigEdit( pc ) {

@@ -12,7 +12,9 @@ function NPCList( ) {
         }).then(jsonRes => {setNPCs(jsonRes.npcs) })
     }, []);
 
-    return (<div className='list'> 
+    return (<>
+    <h1>NPCs</h1>
+    <div className='list'> 
     <table>
         <tr>
             <th>Name</th>
@@ -24,7 +26,8 @@ function NPCList( ) {
         { npcs.map ( ( npc ) => <ReadNPC npc = { npc }/> ) }
     </table>
     
-    </div>);
+    </div>
+    </>);
 }
 
 export default NPCList;

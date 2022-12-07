@@ -7,7 +7,9 @@ function GameCreate ( ) {
     let world = '';
     
 
-    return (<form className = 'form' action = 'http://localhost:3000/games/mine'>
+    return (<>
+    <h1>Create a Game</h1>
+    <form className = 'form' action = 'http://localhost:3000/games/mine'>
         <table>
             <tr>
                 <td><label>Name:</label></td>
@@ -20,7 +22,7 @@ function GameCreate ( ) {
         </table>
         <button type = 'submit' onClick={() => { sigCreate( { name : name, world : world } ) } }>Create</button>
     </form>
-    );
+    </>);
 }
 
 function sigCreate( desc ) {

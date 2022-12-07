@@ -12,7 +12,9 @@ function PCList( ) {
         }).then(jsonRes => {setPCs(jsonRes.pcs) })
     }, []);
 
-    return (<div className='list'> 
+    return (<>
+    <h1>PCs</h1>
+    <div className='list'> 
     <table>
         <tr>
             <th>Name</th>
@@ -26,7 +28,8 @@ function PCList( ) {
         { pcs.map ( ( pc ) => <ReadPC pc = { pc }/> ) }
     </table>
     
-    </div>);
+    </div>
+    </>);
 }
 
 export default PCList;

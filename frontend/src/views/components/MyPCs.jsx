@@ -14,7 +14,9 @@ function MyPCs( ) {
         }).then(jsonRes => { setPCs(jsonRes.pcs) })
     }, []);
 
-    return (<div className='list'>
+    return (<>
+    <h1>My PCs</h1>
+    <div className='list'>
     <table>
         <tr>
             <th>Name</th>
@@ -28,7 +30,8 @@ function MyPCs( ) {
         </tr>
         { pcs.map ( ( pc ) => <PC pc = { pc } update = {setPCs} /> ) }
     </table>
-    </div>);
+    </div>
+    </>);
 }
 
 export default MyPCs;

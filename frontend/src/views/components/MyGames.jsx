@@ -16,7 +16,9 @@ function MyGames( ) {
         }).then(jsonRes => { setGames(jsonRes.games) })
     }, []);
 
-    return (<div className='list'>
+    return (<>
+    <h1>My Games</h1>
+    <div className='list'>
     <table>
         <tr>
             <th>Name</th>
@@ -27,7 +29,8 @@ function MyGames( ) {
         { games.map ( ( game ) => <Game game = { game } update = { setGames }/> ) }
     </table>
     <button onClick = {() => navigate(`/games/create/`)}>Create</button>
-    </div>);
+    </div>
+    </>);
 }
 
 export default MyGames;

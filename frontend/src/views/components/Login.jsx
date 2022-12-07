@@ -14,7 +14,9 @@ function Login ( ) {
         fetch(`/users/login/`, requestOptions);
     }
 
-    return (<form className = 'form' action='http://localhost:3000/'>
+    return (<>
+    <h1>Log-In</h1>
+    <form className = 'form' action='http://localhost:3000/'>
         <table>
             <tr>
                 <td><label>Username:</label></td>
@@ -27,7 +29,7 @@ function Login ( ) {
         </table>
         <button type = 'submit' onClick = { () => handleClick( { name : name, password : password } )}>Log in</button>
     </form>
-    );
+    </>);
 }
 
 export default Login;
