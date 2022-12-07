@@ -37,7 +37,7 @@ class ItemDB {
                 } else {
                     reject(`ID ${id} not found`);
                 }
-            });
+            })
         });
     }
 
