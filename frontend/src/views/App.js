@@ -10,6 +10,7 @@ import MyPCs from './components/MyPCs';
 import PCEdit from './components/PCEdit';
 import PCCreate from './components/PCCreate';
 import NPCCreate from './components/NPCCreate';
+import NPCEdit from './components/NPCEdit';
 import NPCList from './components/NPCList';
 import MyNPCs from './components/MyNPCs';
 import MyItems from './components/MyItems';
@@ -58,6 +59,7 @@ function App() {
           <Route path='/npcs/' element={<NPCList />}/>
           <Route path='/npcs/mine/:id' element={<MyNPCs />}/>
           <Route path='/npcs/create/:gid' element={<NPCCreate />}/>
+          <Route path='/npcs/edit/:id' element={<NPCEdit />}/>
           <Route path='/items/create/:pcid' element={<ItemCreate />}/>
           <Route path='/items/edit/:id' element={<ItemEdit />}/>
         </Routes>

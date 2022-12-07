@@ -122,7 +122,7 @@ class NPCDB {
     }
 
     static update(npc) {
-        this.db.run(`UPDATE PCs SET name="${npc.name}", portrait="${npc.portrait}", game="${npc.game}", home="${npc.home}", known="${npc.known}" where id="${npc.id}" `);
+        this.db.run(`UPDATE NPCs SET name="${npc.name}", portrait="${npc.portrait}", game="${npc.game}", home="${npc.home}", known="${npc.known}" where id="${npc.id}" `);
     }
 
     static destroy(id) {

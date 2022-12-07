@@ -47,13 +47,20 @@ router.get('/npcs', async (req, res) => {
     res.json({'npcs' : await NPCDB.all()});
 });
 
+router.get('/npc/:id/', isAuthenticated, async(req, res) => {
+    res.json({'npc': await NPCDB.find(req.params.id)});
+});
+
 router.get('/npcs/:id/', isAuthenticated, async (req, res) => {
     res.json({'npcs' : await NPCDB.myNPCs(req.params.id)})
 });
 
 router.post('/npcs/create/', isAuthenticated, async (req, res) => {
     NPCDB.create(req.body.desc);
-    console.log(req.body.desc);
+});
+
+router.post('/npcs/edit/', isAuthenticated, async(req, res) => {
+    NPCDB.update(req.body.npc);
 });
 
 module.exports = router;
