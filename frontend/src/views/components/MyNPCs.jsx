@@ -16,7 +16,9 @@ function MyNPCs( props ) {
         }).then(jsonRes => { setNPCs(jsonRes.npcs) })
     }, []);
 
-    return (<div className='list'> 
+    return (<>
+    <h1>NPCs</h1>
+    <div className='list'> 
     <table>
         <tr>
             <th>Name</th>
@@ -28,7 +30,8 @@ function MyNPCs( props ) {
         { npcs.map ( ( npc ) => <NPC npc = { npc } update = {setNPCs}/> ) }
     </table>
     <button onClick = {() => navigate(`/npcs/create/${props.game}`)}>Create</button>
-    </div>);
+    </div>
+    </>);
 }
 
 export default MyNPCs;

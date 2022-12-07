@@ -10,7 +10,9 @@ function NPCCreate ( ) {
     let home = 0;
     let known = 0;
 
-    return(<form className = 'form' action = 'http://localhost:3000/'>
+    return(<>
+    <h1>Create an NPC</h1>
+    <form className = 'form' action = 'http://localhost:3000/'>
         <table>
             <tr>
                 <td><label>Name: </label></td>
@@ -27,7 +29,7 @@ function NPCCreate ( ) {
         </table>
         <button onClick={() => { sigCreate( {name : name, portrait : portrait, game : gid, home : home, known : known})}}> Create </button>
     </form>
-    );
+    </>);
 }
 
 
