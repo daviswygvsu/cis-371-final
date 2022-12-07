@@ -1,14 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { redirect, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PC from './PC';
-import '../../styles/PCList.css';
 
 function MyPCs( ) {
 
-    let { id } = useParams();
     const[pcs, setPCs] = useState([]);
-
-    let navigate = useNavigate();
 
     useEffect(() => {
         fetch(`/characters/pcs/mine/`).then(res => {
@@ -32,7 +28,6 @@ function MyPCs( ) {
         </tr>
         { pcs.map ( ( pc ) => <PC pc = { pc } update = {setPCs} /> ) }
     </table>
-    <button onClick = {() => navigate(`/pcs/create/`)}>Create</button>
     </div>);
 }
 

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import ReadGame from './ReadGame';
-import '../../styles/GameList.css';
 
 function GameList( ) {
     const [games, setGames] = useState([]);

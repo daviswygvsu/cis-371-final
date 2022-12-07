@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import '../../styles/PCForm.css';
 
 function PCCreate ( ) {
 
+    let { gid } = useParams();
+
     let name = '';
     let portrait = '';
-    let game = 0;
+    let game = gid;
     let level = 0;
     let xp = 0;
     let gp = 0;
@@ -20,10 +21,6 @@ function PCCreate ( ) {
             <tr>
                 <td><label>Portrait </label></td>
                 <td><input type = 'text' onChange = { ( e ) => portrait = e.currentTarget.value }/></td>
-            </tr>
-            <tr>
-                <td><label>Game: </label></td>
-                <td><input type = 'text' onChange = { ( e ) => game = e.currentTarget.value }/></td>
             </tr>
             <tr>
                 <td><label>Level: </label></td>

@@ -1,8 +1,10 @@
 import React from 'react';
-import '../../styles/GameList.css';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function ReadGame( props ) {
+
+    const navigate = useNavigate();
 
     let [gmName, setGM] = useState("");
 
@@ -21,6 +23,7 @@ function ReadGame( props ) {
         <td>{props.game.name}</td>
         <td>{props.game.world}</td>
         <td>{gmName}</td>
+        <button onClick = {() => navigate(`/pcs/create/${props.game.id}`)}>Join</button>
     </tr>
     );
 }

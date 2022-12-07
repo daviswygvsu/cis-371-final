@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-function Login ( ) {
+function Signup ( ) {
 
     let name = '';
     let password = '';
@@ -11,7 +11,7 @@ function Login ( ) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 'desc' : desc })
         };
-        fetch(`/users/login/`, requestOptions);
+        fetch(`/users/create/`, requestOptions);
     }
 
     return (<form className = 'form' action='http://localhost:3000/'>
@@ -25,9 +25,9 @@ function Login ( ) {
                 <td><input type = 'password' onChange = { ( e ) => password = e.currentTarget.value }/></td>
             </tr>
         </table>
-        <button type = 'submit' onClick = { () => handleClick( { name : name, password : password } )}>Log in</button>
+        <button type = 'submit' onClick = { () => handleClick( { name : name, password : password } )}>Sign Up</button>
     </form>
     );
 }
 
-export default Login;
+export default Signup;

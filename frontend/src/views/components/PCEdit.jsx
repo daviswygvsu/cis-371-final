@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import '../../styles/PCForm.css';
 
 function PCEdit ( ) {
     let { id } = useParams();
@@ -23,10 +22,6 @@ function PCEdit ( ) {
             <tr>
                 <td><label>Portrait:</label></td>
                 <td><input type = 'text' defaultValue = {pc.portrait} onChange = { ( e ) => pc.portrait = e.currentTarget.value}/></td>
-            </tr>
-            <tr>
-                <td><label>Game:</label></td>
-                <td><input type = 'text' defaultValue = {pc.game} onChange = { ( e ) => pc.game = e.currentTarget.value}/></td>
             </tr>
             <tr>
                 <td><label>Level:</label></td>

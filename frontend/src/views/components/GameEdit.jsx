@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
+import MyNPCs from './MyNPCs.jsx';
 import { useNavigate, useParams } from 'react-router-dom';
-import '../../styles/GameForm.css';
 
 function GameEdit ( ) {
 
-    let { id } = useParams();
+    let { gid } = useParams();
     const [game, setGame] = useState([]);
 
     useEffect(() => {
-        fetch(`/games/${id}/`).then(res => {
+        fetch(`/games/${gid}/`).then(res => {
             if (res.ok) {
                 return res.json()
             }
@@ -27,6 +27,7 @@ function GameEdit ( ) {
             </tr>
         </table>
         <button type = 'submit' onClick={() => { sigEdit( game ) } }>Update</button>
+        <MyNPCs game = { gid } />
     </form>
     );
 }

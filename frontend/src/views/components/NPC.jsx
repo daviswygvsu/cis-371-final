@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { redirect, useNavigate } from "react-router-dom";
-import '../../styles/NPC.css';
 
 function NPC (props ){
     let navigate = useNavigate();
