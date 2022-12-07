@@ -40,8 +40,8 @@ function PCEdit ( ) {
             </tr>
         </table>
         <button onClick={() => { sigEdit( pc ) } }>Update</button>
-        <Items user = {id}/>
     </form>
+    <Items user = {id}/>
     </>);
 }
 

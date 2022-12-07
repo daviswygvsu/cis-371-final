@@ -16,7 +16,9 @@ function MyItems( props ){
         }).then(jsonRes => { setItems(jsonRes.items) })
     }, []);
 
-    return (<div className='list'> 
+    return (<>
+    <h1>Inventory</h1>
+    <div className='list'> 
     <table>
         <tr>
             <th>Name</th>
@@ -27,7 +29,7 @@ function MyItems( props ){
         { items.map ( ( item ) => <Item item = { item } /> ) }
     </table>
     <button onClick = {() => navigate(`/items/create/${props.user}`)}>Create</button>
-    </div>);
+    </div></>);
 }
 
 export default MyItems;
