@@ -23,7 +23,6 @@ function MyQuests( props ) {
         <tr>
             <th>Name</th>
             <th>Level</th>
-            <th>Game</th>
             <th>Description</th>
             <th>XP</th>
             <th>Known</th>

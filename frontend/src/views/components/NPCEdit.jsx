@@ -14,8 +14,6 @@ function NPCEdit ( ) {
         }).then(jsonRes => { setNPC(jsonRes.npc) })
     }, []);
 
-    console.log(npc);
-
     return(<>
     <h1>Edit NPC</h1>
     <form className = 'form' action = 'http://localhost:3000/'>

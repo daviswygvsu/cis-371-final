@@ -23,7 +23,6 @@ function MyGames( ) {
         <tr>
             <th>Name</th>
             <th>World</th>
-            <th>GM</th>
             <th></th>
         </tr>
         { games.map ( ( game ) => <Game game = { game } update = { setGames }/> ) }

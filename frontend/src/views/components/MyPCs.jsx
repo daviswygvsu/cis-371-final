@@ -25,7 +25,6 @@ function MyPCs( ) {
             <th>Level</th>
             <th>XP</th>
             <th>GP</th>
-            <th>User</th>
             <th></th>
         </tr>
         { pcs.map ( ( pc ) => <PC pc = { pc } update = {setPCs} /> ) }
