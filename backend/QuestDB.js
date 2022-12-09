@@ -1,13 +1,13 @@
 var sqlite3 = require('sqlite3').verbose();
 let Quest = require('./Quest');
 
-class GameDB {
+class QuestDB {
     static initialize() {
         this.db.serialize(() => {
-            this.db.run(`CREATE TABLE Quests (id INTEGER PRIMARY KEY, name TEXT NOT NULL, game INTEGER NOT NULL, level INTEGER NOT NULL, known INTEGER NOT NULL, description TEXT);`);
-            this.db.run(`INSERT INTO Quests (name, game, level, known, xp, description) VALUES ("Lost Dog", 1, 1, 10, 0, "A child has lost his dog near the woods");`);
-            this.db.run(`INSERT INTO Quests (name, game, level, known, xp, description) VALUES ("Dragon Problem", 2, 5, 100, 0, "A dragon is attacking a nearby city");`);
-            this.db.run(`INSERT INTO Quests (name, game, level, known, xp, description) VALUES ("Roar of the Tarrasque", 3, 20, 10000, 0, "A tarrasque is terrorizing the land");`);
+            this.db.run(`CREATE TABLE Quests (id INTEGER PRIMARY KEY, name TEXT NOT NULL, game INTEGER NOT NULL, level INTEGER NOT NULL, xp INTEGER NOT NULL, known INTEGER NOT NULL, description TEXT);`);
+            this.db.run(`INSERT INTO Quests (name, game, level, known, xp, description) VALUES ("Lost Dog", 1, 1, 0, 10, "A child has lost his dog near the woods");`);
+            this.db.run(`INSERT INTO Quests (name, game, level, known, xp, description) VALUES ("Dragon Problem", 2, 5, 0, 100, "A dragon is attacking a nearby city");`);
+            this.db.run(`INSERT INTO Quests (name, game, level, known, xp, description) VALUES ("Roar of the Tarrasque", 3, 20, 0, 100000, "A tarrasque is terrorizing the land");`);
         });
     }
 
@@ -47,24 +47,24 @@ class GameDB {
             return new Promise((resolve, reject) => {
                 this.db.run(`INSERT INTO Quests (name, game, level, known, xp, description) VALUES ("${newQuest.name}", "${newQuest.game}", "${newQuest.level}", "${newQuest.known}", "${newQuest.xp}", "${newQuest.description}")`, 
                     function(err, data) {
-                        newGame.id = this.lastID;
-                        resolve(newGame);
+                        newQuest.id = this.lastID;
+                        resolve(newQuest);
                     })
             })
         } else {
-            return newGame;
+            return newQuest;
         }
     }
 
-    static update(game) {
-        this.db.run(`UPDATE Games SET name="${game.name}", world="${game.world}", gm="${game.gm}" where id="${game.id}" `);
+    static update(quest) {
+        this.db.run(`UPDATE Quests SET name="${quest.name}", game="${quest.game}", level="${quest.level}", known="${quest.known}", xp="${quest.xp}" where id="${quest.id}" `);
     }
 
     static destroy(id) {
-        this.db.run(`DELETE FROM Games WHERE (id == ${id})`);
+        this.db.run(`DELETE FROM Quests WHERE (id == ${id})`);
     }
 }
 
-GameDB.db = new sqlite3.Database('games.sqlite');
+QuestDB.db = new sqlite3.Database('quests.sqlite');
 
-module.exports = GameDB;
+module.exports = QuestDB;

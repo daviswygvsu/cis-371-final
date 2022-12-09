@@ -13,7 +13,8 @@ import NPCCreate from './components/NPCCreate';
 import NPCEdit from './components/NPCEdit';
 import NPCList from './components/NPCList';
 import MyNPCs from './components/MyNPCs';
-import MyItems from './components/MyItems';
+import QuestCreate from './components/QuestCreate';
+import QuestEdit from './components/QuestEdit';
 import ItemCreate from './components/ItemCreate';
 import ItemEdit from './components/ItemEdit';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
@@ -62,6 +63,8 @@ function App() {
           <Route path='/npcs/edit/:id' element={<NPCEdit />}/>
           <Route path='/items/create/:pcid' element={<ItemCreate />}/>
           <Route path='/items/edit/:id' element={<ItemEdit />}/>
+          <Route path='/quests/create/:gid' element={<QuestCreate />}/>
+          <Route path='/quests/edit/:id' element={<QuestEdit />}/>
         </Routes>
       </div>
 
