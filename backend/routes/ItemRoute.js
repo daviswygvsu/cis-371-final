@@ -10,7 +10,7 @@ router.get('/:user/', async (req, res) => {
     res.json({'items' : await ItemDB.myItems(req.params.user)});
 });
 
-router.get('/:id/', async (req, res) => {
+router.get('/find/:id/', async (req, res) => {
     res.json({'item' : await ItemDB.find(req.params.id)});
 });
 

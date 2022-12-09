@@ -7,7 +7,7 @@ function ItemEdit ( ) {
     const[item, setItem] = useState([]);
 
     useEffect(() => {
-        fetch(`/items/${id}/`).then(res => {
+        fetch(`/items/find/${id}/`).then(res => {
             if(res.ok) {
                 return res.json()
             }
