@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-function NPCCreate ( ) {
+function NPCEdit ( ) {
 
     let { id } = useParams();
     const[npc, setNPC] = useState([]);
@@ -13,8 +13,6 @@ function NPCCreate ( ) {
             }
         }).then(jsonRes => { setNPC(jsonRes.npc) })
     }, []);
-
-    console.log(npc);
 
     return(<>
     <h1>Edit NPC</h1>
@@ -48,4 +46,4 @@ function sigEdit( npc ) {
     fetch(`/characters/npcs/edit/`, requestOptions);
 }
 
-export default NPCCreate;
+export default NPCEdit;

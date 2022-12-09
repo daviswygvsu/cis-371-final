@@ -23,7 +23,6 @@ function MyNPCs( props ) {
         <tr>
             <th>Name</th>
             <th>Portrait</th>
-            <th>Game</th>
             <th>Home</th>
             <th>Known</th>
         </tr>
