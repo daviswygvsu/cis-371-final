@@ -4,13 +4,25 @@ import { redirect, useNavigate } from "react-router-dom";
 function NPC (props){
     let navigate = useNavigate();
 
+    let [homeName, setHome] = useState("");
+
+    useEffect(() => {
+        fetch(`/locations/find/${props.npc.home}`).then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        }).then(
+            jsonRes => { setHome(jsonRes.location.name) }
+        );
+    }, []);
+
     return(
         <tr>
             <td>{props.npc.name}</td>
             <td>{props.npc.portrait}</td>
-            <td>{props.npc.home}</td>
-            <td>{props.npc.known ? "Known" : "Unkown"}</td>
-            <button type = 'button' onClick = { () => { navigate(`/npcs/edit/${props.npc.id}`) } }>Edit</button> <button type = 'button' onClick = { () => { fetchDestroy(props.npc.game, props.npc.id, props.update ) } }>Destroy</button>
+            <td>{homeName}</td>
+            <td>{props.npc.known ? "Known" : "Unknown"}</td>
+            <button type = 'button' onClick = { () => { navigate(`/npcs/edit/${props.npc.id}`) } }>Edit</button> <button type = 'button' className='dbutton' onClick = { () => { fetchDestroy(props.npc.game, props.npc.id, props.update ) } }>Destroy</button>
         </tr>
     )
 }

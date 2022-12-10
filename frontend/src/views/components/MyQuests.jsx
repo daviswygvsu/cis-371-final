@@ -29,7 +29,7 @@ function MyQuests( props ) {
         </tr>
         { quests.map ( ( quest ) => <Quest quest = { quest } update = {setQuests}/> ) }
     </table>
-    <button onClick = {() => navigate(`/quests/create/${props.game}`)}>Create</button>
+    <button className = 'cbutton' onClick = {() => navigate(`/quests/create/${props.game}`)}>+</button>
     </div>
     </>);
 }

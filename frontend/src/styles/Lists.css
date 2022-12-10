@@ -1,13 +1,13 @@
 h1 {
     color : #cccccc;
+    margin-top: 50px;
+    margin-left: 35px;
 }
 
 body {
-    background-image: url("../assets/xanathar.jpeg");
+    background-color: black;
+    background-image: url('../assets/background.gif');
     background-repeat: no-repeat;
-    height: 1080;
-    background-size: cover;
-    background-color: #cccccc;
 }
 
 .list, form {
@@ -16,26 +16,33 @@ body {
     margin-top: 5px;
     margin-bottom: 5px;
     text-align: center;
-    border: 4px solid black;
+    border: hidden;
     border-radius: 10px;
     padding: 20px;
-    background-color: #cccccc;
+    background-image: linear-gradient(to bottom right, rgba(255,0,0,0), rgb(68, 0, 255),  rgba(255,0,0,0));
+    color:#cccccc;
     opacity: 75%;
 }
 
 .tab {
     background-color: #cccccc;
+    color:#cccccc;
     margin-right: 5px;
     margin-left: 5px;
     padding: 10px;
-    border-bottom: 4px solid black;
-    border-right: 4px solid black;
-    border-left: 4px solid black;
+    border-bottom: solid;
+    border-right: solid;
+    border-left: solid;
     border-radius: 0px 0px 10px 10px;
+    position: relative;
+    top: -25px;
+    opacity: 75%;
 }
 
-h1 {
-    margin: 20px;
+.tab:hover {
+    position: relative;
+    top: 0px;
+    opacity: 75%;
 }
 
 table {
@@ -45,6 +52,50 @@ table {
 
 button {
     margin-top: 10px;
+    color:#cccccc;
+    background-color: rgb(68, 0, 255);
+    border: 1px solid;
+    border-radius: 2px;
+}
+
+.dbutton {
+    margin-top: 10px;
+    color:#cccccc;
+    background-color: red;
+    border: 1px solid;
+    border-radius: 2px;
+}
+
+.cbutton {
+    margin-top: 10px;
+    color:#cccccc;
+    background-color: green;
+    border: 1px solid;
+    border-radius: 2px;
+}
+
+button:hover {
+    background-color: black;
+    color: rgb(68, 0, 255);
+    opacity: 75%;
+    border: 1px solid;
+    border-radius: 2px;
+}
+
+.dbutton:hover {
+    background-color: black;
+    color: red;
+    opacity: 75%;
+    border: 1px solid;
+    border-radius: 2px;
+}
+
+.cbutton:hover {
+    background-color: black;
+    color: green;
+    opacity: 75%;
+    border: 1px solid;
+    border-radius: 2px;
 }
 
 td {
@@ -52,5 +103,5 @@ td {
 }
 
 * {
-    font-family: Papyrus, Fantasy, serif;
+    font-family: 'Courier New', Courier, monospace;
 }

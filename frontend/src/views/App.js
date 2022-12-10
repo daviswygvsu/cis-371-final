@@ -17,11 +17,13 @@ import QuestCreate from './components/QuestCreate';
 import QuestEdit from './components/QuestEdit';
 import ItemCreate from './components/ItemCreate';
 import ItemEdit from './components/ItemEdit';
+import LocationCreate from './components/LocationCreate';
+import LocationEdit from './components/LocationEdit';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
 import '../styles/Lists.css';
 
 function App() {
-  return (
+  return (<>
     <Router>
       <div>
           <span className='tab'>
@@ -62,11 +64,13 @@ function App() {
           <Route path='/items/edit/:id' element={<ItemEdit />}/>
           <Route path='/quests/create/:gid' element={<QuestCreate />}/>
           <Route path='/quests/edit/:id' element={<QuestEdit />}/>
+          <Route path='/locations/create/:gid' element={<LocationCreate />}/>
+          <Route path='/locations/edit/:id' element={<LocationEdit />}/>
         </Routes>
       </div>
 
     </Router>
-  );
+  </>);
 }
 
 export default App;

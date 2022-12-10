@@ -70,9 +70,9 @@ class NPCDB {
     static initialize() {
         this.db.serialize(() => {
             this.db.run(`CREATE TABLE NPCs (id INTEGER PRIMARY KEY, name TEXT NOT NULL, portrait TEXT NOT NULL, game INTEGER NOT NULL, home INTEGER NOT NULL, known INTEGER NOT NULL);`);
-            this.db.run(`INSERT INTO NPCs (name, portrait, game, home, known ) VALUES ("Aragorn", "aragorn_businesscasual.jpeg", 1, 33, 0 );`);
-            this.db.run(`INSERT INTO NPCs (name, portrait, game, home, known ) VALUES ("Steve from Minecraft", "creeper.png", 2, 44, 1 );`);
-            this.db.run(`INSERT INTO NPCs (name, portrait, game, home, known ) VALUES ("Ronald Weasley", "harrysparents.jpeg", 3, 55, 1 );`);
+            this.db.run(`INSERT INTO NPCs (name, portrait, game, home, known ) VALUES ("Aragorn", "aragorn_businesscasual.jpeg", 1, 1, 0 );`);
+            this.db.run(`INSERT INTO NPCs (name, portrait, game, home, known ) VALUES ("Steve from Minecraft", "creeper.png", 2, 2, 1 );`);
+            this.db.run(`INSERT INTO NPCs (name, portrait, game, home, known ) VALUES ("Ronald Weasley", "harrysparents.jpeg", 3, 3, 1 );`);
         });
     }
 

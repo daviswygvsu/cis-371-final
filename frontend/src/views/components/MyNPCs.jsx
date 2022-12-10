@@ -28,7 +28,7 @@ function MyNPCs( props ) {
         </tr>
         { npcs.map ( ( npc ) => <NPC npc = { npc } update = {setNPCs}/> ) }
     </table>
-    <button onClick = {() => navigate(`/npcs/create/${props.game}`)}>Create</button>
+    <button className = 'cbutton' onClick = {() => navigate(`/npcs/create/${props.game}`)}>+</button>
     </div>
     </>);
 }

@@ -27,7 +27,7 @@ function MyGames( ) {
         </tr>
         { games.map ( ( game ) => <Game game = { game } update = { setGames }/> ) }
     </table>
-    <button onClick = {() => navigate(`/games/create/`)}>Create</button>
+    <button className = 'cbutton' onClick = {() => navigate(`/games/create/`)}>+</button>
     </div>
     </>);
 }

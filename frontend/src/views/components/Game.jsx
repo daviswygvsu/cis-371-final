@@ -10,7 +10,7 @@ function Game( props ) {
     <tr>
         <td>{props.game.name}</td>
         <td>{props.game.world}</td>
-        <button type = 'button' onClick = { () => { navigate(`/games/edit/${props.game.id}`) } }>Edit</button> <button type = 'button' onClick = { () => { fetchDestroy( props.game.id, props.update ) } }>Destroy</button>
+        <button type = 'button' onClick = { () => { navigate(`/games/edit/${props.game.id}`) } }>Edit</button> <button type = 'button' className = 'dbutton' onClick = { () => { fetchDestroy( props.game.id, props.update ) } }>Destroy</button>
     </tr>
     );
 }

@@ -57,7 +57,7 @@ class QuestDB {
     }
 
     static update(quest) {
-        this.db.run(`UPDATE Quests SET name="${quest.name}", game="${quest.game}", level="${quest.level}", known="${quest.known}", xp="${quest.xp}" where id="${quest.id}" `);
+        this.db.run(`UPDATE Quests SET name="${quest.name}", game="${quest.game}", level="${quest.level}", known="${quest.known}", xp="${quest.xp}", description="${quest.description}" where id="${quest.id}" `);
     }
 
     static destroy(id) {

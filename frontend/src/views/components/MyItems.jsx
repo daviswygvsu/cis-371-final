@@ -27,7 +27,7 @@ function MyItems( props ){
         </tr>
         { items.map ( ( item ) => <Item item = { item } update = { setItems }/> ) }
     </table>
-    <button onClick = {() => navigate(`/items/create/${props.user}`)}>Create</button>
+    <button className = 'cbutton' onClick = {() => navigate(`/items/create/${props.user}`)}>+</button>
     </div></>);
 }
 

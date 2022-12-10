@@ -27,8 +27,8 @@ function ItemEdit ( ) {
                 <td><input type = 'text' defaultValue = {item.value} onChange = { ( e ) => item.value = e.currentTarget.value }/></td>
             </tr>
             <tr>
-                <td><label>Desc: </label></td>
-                <td><input type = 'text' defaultValue = {item.desc} onChange = { ( e ) => item.desc = e.currentTarget.value }/></td>
+                <td><label>Description: </label></td>
+                <td><input type = 'textarea' defaultValue = {item.desc} onChange = { ( e ) => item.desc = e.currentTarget.value }/></td>
             </tr>
         </table>
         <button onClick={() => { sigEdit( item )}}> Update </button>

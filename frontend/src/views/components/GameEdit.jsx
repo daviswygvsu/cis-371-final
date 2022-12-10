@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import MyNPCs from './MyNPCs.jsx';
 import MyQuests from './MyQuests.jsx';
+import MyLocations from './MyLocations.jsx';
 import { useNavigate, useParams } from 'react-router-dom';
 
 function GameEdit ( ) {
@@ -31,6 +32,7 @@ function GameEdit ( ) {
         </table>
         <button type = 'submit' onClick={() => { sigEdit( game ) } }>Update</button>
     </form>
+    <MyLocations game = {gid} />
     <MyNPCs game = { gid } />
     <MyQuests game = { gid }/>
     </>);
