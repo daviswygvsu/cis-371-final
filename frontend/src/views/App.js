@@ -40,9 +40,6 @@ function App() {
             <Link to='/games/mine/'>My Games</Link>
           </span>
           <span className='tab'>
-            <Link to='/pcs/'> Browse PCs</Link>
-          </span>
-          <span className='tab'>
             <Link to='/pcs/mine/'> My PCs</Link>
           </span>
         <Routes>

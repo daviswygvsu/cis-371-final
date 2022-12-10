@@ -22,9 +22,8 @@ function MyItems( props ){
     <table>
         <tr>
             <th>Name</th>
-            <th>Owner</th>
             <th>Value</th>
-            <th>Desc</th>
+            <th>Description</th>
         </tr>
         { items.map ( ( item ) => <Item item = { item } update = { setItems }/> ) }
     </table>

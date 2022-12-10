@@ -14,6 +14,8 @@ function NPCEdit ( ) {
         }).then(jsonRes => { setNPC(jsonRes.npc) })
     }, []);
 
+    const bLabel = npc.known ? "Hide from players" : "Reveal to Players";
+
     return(<>
     <h1>Edit NPC</h1>
     <form className = 'form' action = 'http://localhost:3000/'>
@@ -31,6 +33,7 @@ function NPCEdit ( ) {
                 <td><input type = 'text' defaultValue = { npc.home } onChange = { ( e ) => npc.home = e.currentTarget.value }/></td>
             </tr>
         </table>
+        <button type='button' onClick={() => {npc.known = npc.known ? 0 : 1}}>{bLabel}</button>
         <button onClick={() => { sigEdit( npc )}}> Update </button>
     </form>
     </>);
