@@ -17,7 +17,7 @@ function NPCView( props ) {
     }, []);
 
     return (<>
-    <h1>NPCs</h1>
+    <h2>NPCs</h2>
     <div className='list'> 
     <table>
         <tr>

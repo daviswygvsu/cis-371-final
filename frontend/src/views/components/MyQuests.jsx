@@ -23,7 +23,7 @@ function MyQuests( props ) {
         <tr>
             <th>Name</th>
             <th>Level</th>
-            <th>Description</th>
+            <th className='d-none d-sm-block'>Description</th>
             <th>XP</th>
             <th>Known</th>
         </tr>

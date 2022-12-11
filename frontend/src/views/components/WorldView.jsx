@@ -17,7 +17,7 @@ function WorldView( props ) {
     }, []);
 
     return (<>
-    <h1>Locations</h1>
+    <h2>Locations</h2>
     <div className='list'> 
     <table>
         <tr>

@@ -9,7 +9,7 @@ function Location (props){
             <td>{props.location.name}</td>
             <td>{props.location.map}</td>
             <td>{props.location.known ? "Known" : "Unknown"}</td>
-            <button type = 'button' onClick = { () => { navigate(`/locations/edit/${props.location.id}`) } }>Edit</button> <button type = 'button' className='dbutton' onClick = { () => { fetchDestroy(props.location.game, props.location.id, props.update ) } }>Destroy</button>
+            <button className='d-none d-sm-inline' type = 'button' onClick = { () => { navigate(`/locations/edit/${props.location.id}`) } }>Edit</button> <button type = 'button' className='dbutton d-none d-sm-inline' onClick = { () => { fetchDestroy(props.location.game, props.location.id, props.update ) } }>Destroy</button>
         </tr>
     )
 }

@@ -17,13 +17,13 @@ function QuestView( props ) {
     }, []);
 
     return (<>
-    <h1>Quests</h1>
+    <h2>Quests</h2>
     <div className='list'> 
     <table>
         <tr>
             <th>Name</th>
             <th>Level</th>
-            <th>Description</th>
+            <th className='d-none d-sm-block'>Description</th>
             <th>XP</th>
         </tr>
         { quests.map ( ( quest ) => <ReadQuest quest = { quest }/> ) }

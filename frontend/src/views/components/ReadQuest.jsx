@@ -7,7 +7,7 @@ function ReadQuest (props){
         <tr>
             <td>{props.quest.name}</td>
             <td>{props.quest.level}</td>
-            <td>{props.quest.description}</td>
+            <td className='d-none d-sm-block'>{props.quest.description}</td>
             <td>{props.quest.xp}</td>
         </tr>
     )

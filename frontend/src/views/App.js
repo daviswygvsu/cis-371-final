@@ -25,26 +25,32 @@ import '../styles/Lists.css';
 
 function App() {
   return (<>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class='nav-item'>
+            <a class='nav-link' href='/'>Home</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='/login'>Log-In</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='/signup'>Sign-Up</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='/games/'>Browse Games</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='/games/mine/'>My Games</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='/pcs/mine/'>My PCs</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <Router>
-      <div>
-          <span className='tab'>
-            <Link to='/'>Home</Link>
-          </span>
-          <span className='tab'>
-            <Link to='/login'>Log in</Link>
-          </span>
-          <span className='tab'>
-            <Link to='/signup/'>Sign up</Link>
-          </span>
-          <span className='tab'>
-            <Link to='/games/'>Browse Games</Link>
-          </span>
-          <span className='tab'>
-            <Link to='/games/mine/'>My Games</Link>
-          </span>
-          <span className='tab'>
-            <Link to='/pcs/mine/'> My PCs</Link>
-          </span>
+      <div className='container-fluid'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/games/' element={<GameList />} />

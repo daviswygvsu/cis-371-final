@@ -22,7 +22,7 @@ function NPC (props){
             <td>{props.npc.portrait}</td>
             <td>{homeName}</td>
             <td>{props.npc.known ? "Known" : "Unknown"}</td>
-            <button type = 'button' onClick = { () => { navigate(`/npcs/edit/${props.npc.id}`) } }>Edit</button> <button type = 'button' className='dbutton' onClick = { () => { fetchDestroy(props.npc.game, props.npc.id, props.update ) } }>Destroy</button>
+            <button className='d-none d-sm-inline' type = 'button' onClick = { () => { navigate(`/npcs/edit/${props.npc.id}`) } }>Edit</button> <button type = 'button' className='dbutton d-none d-sm-inline' onClick = { () => { fetchDestroy(props.npc.game, props.npc.id, props.update ) } }>Destroy</button>
         </tr>
     )
 }
