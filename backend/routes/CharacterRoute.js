@@ -55,6 +55,10 @@ router.get('/npcs/:id/', isAuthenticated, async (req, res) => {
     res.json({'npcs' : await NPCDB.myNPCs(req.params.id)})
 });
 
+router.get('/npcs/known/:id/', isAuthenticated, async (req, res) => {
+    res.json({'npcs' : await NPCDB.knownNPCs(req.params.id)})
+});
+
 router.post('/npcs/create/', isAuthenticated, async (req, res) => {
     NPCDB.create(req.body.desc);
 });

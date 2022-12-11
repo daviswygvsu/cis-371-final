@@ -94,6 +94,15 @@ class NPCDB {
         });
     }
 
+    static knownNPCs(id) {
+        return new Promise((resolve, reject) => {
+            this.db.all(`SELECT * from NPCs where (game == ${id}) AND (known == 1)`, (err, res) => {
+                let arrayRes = res.map(item => new NPC(item));
+                resolve(arrayRes);
+            })
+        });
+    }
+
     static find(id) {
         return new Promise((resolve, reject) => {
             this.db.all(`SELECT * from NPCs where (id == ${id})`, (err, rows) => {

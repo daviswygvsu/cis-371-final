@@ -19,6 +19,7 @@ import ItemCreate from './components/ItemCreate';
 import ItemEdit from './components/ItemEdit';
 import LocationCreate from './components/LocationCreate';
 import LocationEdit from './components/LocationEdit';
+import GameView from './components/GameView';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
 import '../styles/Lists.css';
 
@@ -66,6 +67,7 @@ function App() {
           <Route path='/quests/edit/:id' element={<QuestEdit />}/>
           <Route path='/locations/create/:gid' element={<LocationCreate />}/>
           <Route path='/locations/edit/:id' element={<LocationEdit />}/>
+          <Route path='/games/:id' element={<GameView />}/>
         </Routes>
       </div>
 

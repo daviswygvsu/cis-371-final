@@ -16,6 +16,10 @@ router.get('/:gid', async (req, res) => {
     res.json({'locations' : await LocationDB.myLocations(req.params.gid)});
 });
 
+router.get('/known/:gid', async (req, res) => {
+    res.json({'locations' : await LocationDB.knownLocations(req.params.gid)});
+});
+
 router.get('/find/:id/', async (req, res) => {
     res.json({'location' : await LocationDB.find(req.params.id)});
 });

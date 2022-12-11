@@ -16,6 +16,10 @@ router.get('/:gid', async (req, res) => {
     res.json({'quests' : await QuestDB.myQuests(req.params.gid)});
 });
 
+router.get('/known/:gid', async (req, res) => {
+    res.json({'quests' : await QuestDB.knownQuests(req.params.gid)});
+});
+
 router.get('/find/:id/', async (req, res) => {
     res.json({'quest' : await QuestDB.find(req.params.id)});
 });

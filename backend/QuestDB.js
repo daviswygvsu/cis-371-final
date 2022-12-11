@@ -29,6 +29,15 @@ class QuestDB {
         });
     }
 
+    static knownQuests(id) {
+        return new Promise((resolve, reject) => {
+            this.db.all(`SELECT * from Quests where (game == ${id}) AND (known == 1)`, (err, res) => {
+                let arrayRes = res.map(item => new Quest(item));
+                resolve(arrayRes);
+            })
+        });
+    }
+
     static find(id) {
         return new Promise((resolve, reject) => {
             this.db.all(`SELECT * from Quests where (id == ${id})`, (err, rows) => {

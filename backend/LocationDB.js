@@ -29,6 +29,15 @@ class LocationDB {
         });
     }
 
+    static knownLocations(id) {
+        return new Promise((resolve, reject) => {
+            this.db.all(`SELECT * from Locations where (game == ${id}) AND (known == 1)`, (err, res) => {
+                let arrayRes = res.map(item => new Location(item));
+                resolve(arrayRes);
+            })
+        });
+    }
+
     static find(id) {
         return new Promise((resolve, reject) => {
             this.db.all(`SELECT * from Locations where (id == ${id})`, (err, rows) => {
