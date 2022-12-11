@@ -23,21 +23,6 @@ body {
     opacity: 75%;
 }
 
-.tab {
-    background-color: #cccccc;
-    color:#cccccc;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding: 10px;
-    border-bottom: solid;
-    border-right: solid;
-    border-left: solid;
-    border-radius: 0px 0px 10px 10px;
-    position: relative;
-    top: -25px;
-    opacity: 75%;
-}
-
 .tab:hover {
     position: relative;
     top: 0px;

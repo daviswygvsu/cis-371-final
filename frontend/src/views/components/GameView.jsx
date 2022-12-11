@@ -22,6 +22,7 @@ function GameView ( ) {
 
     return(<>
     <h1>{gameName}</h1>
+    <hr></hr>
     <WorldView game = {id}/>
     <NPCView game = {id}/>
     <QuestView game = {id}/>
