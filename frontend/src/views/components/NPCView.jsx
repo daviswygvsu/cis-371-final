@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import { redirect, useNavigate, useParams } from "react-router-dom";
-import NPC from './NPC';
+import { useNavigate } from "react-router-dom";
+import ReadNPC from './ReadNPC';
 
-function MyNPCs( props ) {
+function NPCView( props ) {
 
     const[npcs, setNPCs] = useState([]);
 
     let navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`/characters/npcs/${props.game}/`).then(res => {
+        fetch(`/characters/npcs/known/${props.game}/`).then(res => {
             if(res.ok){
                 return res.json()
             }
@@ -17,20 +17,18 @@ function MyNPCs( props ) {
     }, []);
 
     return (<>
-    <h1>NPCs</h1>
+    <h2>NPCs</h2>
     <div className='list'> 
     <table>
         <tr>
             <th>Name</th>
             <th>Portrait</th>
             <th>Home</th>
-            <th>Known</th>
         </tr>
-        { npcs.map ( ( npc ) => <NPC npc = { npc } update = {setNPCs}/> ) }
+        { npcs.map ( ( npc ) => <ReadNPC npc = { npc }/> ) }
     </table>
-    <button className = 'cbutton' onClick = {() => navigate(`/npcs/create/${props.game}`)}>+</button>
     </div>
     </>);
 }
 
-export default MyNPCs;
+export default NPCView;

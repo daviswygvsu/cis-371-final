@@ -14,8 +14,6 @@ function QuestEdit ( ) {
         }).then(jsonRes => { setQuest(jsonRes.quest) })
     }, []);
 
-    const bLabel = quest.known ? "Hide from players" : "Reveal to Players";
-
     return(<>
     <h1>Edit Quest</h1>
     <form className = 'form' action = 'http://localhost:3000/'>
@@ -36,8 +34,14 @@ function QuestEdit ( ) {
                 <td><label>XP: </label></td>
                 <td><input type = 'text' defaultValue = { quest.xp } onChange = { ( e ) => quest.xp = e.currentTarget.value }/></td>
             </tr>
+            <tr>
+                <td><label>Known: </label></td>
+                <select onChange = { ( e ) => quest.known = e.currentTarget.value}>
+                    <option value={0}>Unknown</option>
+                    <option value={1}>Known</option>
+                </select>
+            </tr>
         </table>
-        <button type='button' onClick={() => {quest.known = quest.known ? 0 : 1}}>{bLabel}</button>
         <button onClick={() => { sigEdit( quest )}}> Update </button>
     </form>
     </>);

@@ -25,7 +25,7 @@ function PC (props ){
             <td>{props.pc.level}</td>
             <td>{props.pc.xp}</td>
             <td>{props.pc.gp}</td>
-            <button type = 'button' onClick = { () => { navigate(`/pcs/edit/${props.pc.id}`) } }>Edit</button><button type = 'button' onClick = { () => { fetchDestroy( props.pc.id, props.update ) } }>Destroy</button>
+            <button type = 'button' onClick = { () => { navigate(`/games/${props.pc.game}`) } }>View Game</button><button type = 'button' className='d-none d-sm-inline' onClick = { () => { navigate(`/pcs/edit/${props.pc.id}`) } }>Edit</button><button type = 'button' className='dbutton d-none d-sm-inline' onClick = { () => { fetchDestroy( props.pc.id, props.update ) } }>Destroy</button>
         </tr>
     )
 }

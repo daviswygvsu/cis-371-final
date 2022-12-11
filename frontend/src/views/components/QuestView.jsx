@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
-import Quest from './Quest';
+import ReadQuest from './ReadQuest';
 
-function MyQuests( props ) {
+function QuestView( props ) {
 
     const[quests, setQuests] = useState([]);
 
     let navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`/quests/${props.game}/`).then(res => {
+        fetch(`/quests/known/${props.game}/`).then(res => {
             if(res.ok){
                 return res.json()
             }
@@ -17,7 +17,7 @@ function MyQuests( props ) {
     }, []);
 
     return (<>
-    <h1>Quests</h1>
+    <h2>Quests</h2>
     <div className='list'> 
     <table>
         <tr>
@@ -25,13 +25,11 @@ function MyQuests( props ) {
             <th>Level</th>
             <th className='d-none d-sm-block'>Description</th>
             <th>XP</th>
-            <th>Known</th>
         </tr>
-        { quests.map ( ( quest ) => <Quest quest = { quest } update = {setQuests}/> ) }
+        { quests.map ( ( quest ) => <ReadQuest quest = { quest }/> ) }
     </table>
-    <button className = 'cbutton' onClick = {() => navigate(`/quests/create/${props.game}`)}>+</button>
     </div>
     </>);
 }
 
-export default MyQuests;
+export default QuestView;

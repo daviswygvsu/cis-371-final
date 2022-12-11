@@ -4,11 +4,23 @@ import { useNavigate, useParams } from 'react-router-dom';
 function NPCCreate ( ) {
 
     let { gid } = useParams();
+    const [locations, setLocations] = useState([]);
+
+    useEffect(() => {
+        fetch(`/locations/${gid}/`).then(res => {
+            if(res.ok) {
+                return res.json()
+            }
+        }).then(jsonRes => { setLocations(jsonRes.locations) });
+
+    }, []);
 
     let name = '';
     let portrait = '';
     let home = 0;
     let known = 0;
+
+    let homeOptions = locations.map((location) => <option value = {location.id}>{location.name}</option>);
 
     return(<>
     <h1>Create an NPC</h1>
@@ -24,7 +36,9 @@ function NPCCreate ( ) {
             </tr>
             <tr>
                 <td><label>Home: </label></td>
-                <td><input type = 'text' onChange = { ( e ) => home = e.currentTarget.value }/></td>
+                <select onChange = { (e) => home = e.currentTarget.value }>
+                    {homeOptions}
+                </select>
             </tr>
         </table>
         <button onClick={() => { sigCreate( {name : name, portrait : portrait, game : gid, home : home, known : known})}}> Create </button>

@@ -29,6 +29,15 @@ class QuestDB {
         });
     }
 
+    static knownQuests(id) {
+        return new Promise((resolve, reject) => {
+            this.db.all(`SELECT * from Quests where (game == ${id}) AND (known == 1)`, (err, res) => {
+                let arrayRes = res.map(item => new Quest(item));
+                resolve(arrayRes);
+            })
+        });
+    }
+
     static find(id) {
         return new Promise((resolve, reject) => {
             this.db.all(`SELECT * from Quests where (id == ${id})`, (err, rows) => {
@@ -57,7 +66,7 @@ class QuestDB {
     }
 
     static update(quest) {
-        this.db.run(`UPDATE Quests SET name="${quest.name}", game="${quest.game}", level="${quest.level}", known="${quest.known}", xp="${quest.xp}" where id="${quest.id}" `);
+        this.db.run(`UPDATE Quests SET name="${quest.name}", game="${quest.game}", level="${quest.level}", known="${quest.known}", xp="${quest.xp}", description="${quest.description}" where id="${quest.id}" `);
     }
 
     static destroy(id) {

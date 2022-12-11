@@ -17,31 +17,40 @@ import QuestCreate from './components/QuestCreate';
 import QuestEdit from './components/QuestEdit';
 import ItemCreate from './components/ItemCreate';
 import ItemEdit from './components/ItemEdit';
+import LocationCreate from './components/LocationCreate';
+import LocationEdit from './components/LocationEdit';
+import GameView from './components/GameView';
 import { BrowserRouter as Router, Routes, Route, Link, redirect } from "react-router-dom";
 import '../styles/Lists.css';
 
 function App() {
-  return (
+  return (<>
+    <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div className="container-fluid">
+        <ul className="navbar-nav">
+          <li className='nav-item'>
+            <a className='nav-link' href='/'>Home</a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link' href='/login'>Log-In</a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link' href='/signup'>Sign-Up</a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link' href='/games/'>Browse Games</a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link' href='/games/mine/'>My Games</a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link' href='/pcs/mine/'>My PCs</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <Router>
-      <div>
-          <span className='tab'>
-            <Link to='/'>Home</Link>
-          </span>
-          <span className='tab'>
-            <Link to='/login'>Log in</Link>
-          </span>
-          <span className='tab'>
-            <Link to='/signup/'>Sign up</Link>
-          </span>
-          <span className='tab'>
-            <Link to='/games/'>Browse Games</Link>
-          </span>
-          <span className='tab'>
-            <Link to='/games/mine/'>My Games</Link>
-          </span>
-          <span className='tab'>
-            <Link to='/pcs/mine/'> My PCs</Link>
-          </span>
+      <div className='container-fluid'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/games/' element={<GameList />} />
@@ -62,11 +71,14 @@ function App() {
           <Route path='/items/edit/:id' element={<ItemEdit />}/>
           <Route path='/quests/create/:gid' element={<QuestCreate />}/>
           <Route path='/quests/edit/:id' element={<QuestEdit />}/>
+          <Route path='/locations/create/:gid' element={<LocationCreate />}/>
+          <Route path='/locations/edit/:id' element={<LocationEdit />}/>
+          <Route path='/games/:id' element={<GameView />}/>
         </Routes>
       </div>
 
     </Router>
-  );
+  </>);
 }
 
 export default App;

@@ -1,6 +1,6 @@
 const express = require('express');
 let router = express.Router();
-let QuestDB = require('../QuestDB');
+let LocationDB = require('../LocationDB');
 let UserDB = require('../UserDB');
 
 function isAuthenticated(req, res, next) {
@@ -13,28 +13,28 @@ function isAuthenticated(req, res, next) {
 }
 
 router.get('/:gid', async (req, res) => {
-    res.json({'quests' : await QuestDB.myQuests(req.params.gid)});
+    res.json({'locations' : await LocationDB.myLocations(req.params.gid)});
 });
 
 router.get('/known/:gid', async (req, res) => {
-    res.json({'quests' : await QuestDB.knownQuests(req.params.gid)});
+    res.json({'locations' : await LocationDB.knownLocations(req.params.gid)});
 });
 
 router.get('/find/:id/', async (req, res) => {
-    res.json({'quest' : await QuestDB.find(req.params.id)});
+    res.json({'location' : await LocationDB.find(req.params.id)});
 });
 
 router.get('/destroy/:gid/:id/', isAuthenticated, async (req, res) => {
-    QuestDB.destroy(req.params.id);
-    res.json({'quests' : await QuestDB.myQuests(req.params.gid)});
+    LocationDB.destroy(req.params.id);
+    res.json({'locations' : await LocationDB.myLocations(req.params.gid)});
 });
 
 router.post('/create/', isAuthenticated, async(req, res) => {
-    QuestDB.create(req.body.desc);
+    LocationDB.create(req.body.desc);
 });
 
 router.post('/edit/', isAuthenticated, async(req, res) => {
-    QuestDB.update(req.body.quest);
+    LocationDB.update(req.body.location);
 });
 
 module.exports = router;

@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 function NPCEdit ( ) {
 
     let { id } = useParams();
+    const [locations, setLocations] = useState([]);
     const[npc, setNPC] = useState([]);
 
     useEffect(() => {
@@ -11,10 +12,31 @@ function NPCEdit ( ) {
             if(res.ok) {
                 return res.json()
             }
-        }).then(jsonRes => { setNPC(jsonRes.npc) })
+        }).then(jsonRes => { setNPC(jsonRes.npc) });
+
     }, []);
 
-    const bLabel = npc.known ? "Hide from players" : "Reveal to Players";
+    useEffect(() => {
+
+        if (npc.game) {
+            fetch(`/locations/${npc.game}/`).then(res => {
+                if (res.ok) {
+                    return res.json()
+                }
+            }).then(jsonRes => { setLocations(jsonRes.locations) });
+        }
+
+    }, [npc]);
+
+    if (npc.game) {
+        fetch(`/locations/${npc.game}/`).then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        }).then(jsonRes => { setLocations(jsonRes.locations) });
+    }
+
+    let homeOptions = locations.map((location) => <option value = {location.id}>{location.name}</option>);
 
     return(<>
     <h1>Edit NPC</h1>
@@ -30,10 +52,18 @@ function NPCEdit ( ) {
             </tr>
             <tr>
                 <td><label>Home: </label></td>
-                <td><input type = 'text' defaultValue = { npc.home } onChange = { ( e ) => npc.home = e.currentTarget.value }/></td>
+                <select onChange = { (e) => npc.home = e.currentTarget.value}>
+                    {homeOptions}
+                </select>
+            </tr>
+            <tr>
+                <td><label>Known: </label></td>
+                <select onChange = { ( e ) => { npc.known = e.currentTarget.value; } }>
+                    <option value={0}>Unknown</option>
+                    <option value={1}>Known</option>
+                </select>
             </tr>
         </table>
-        <button type='button' onClick={() => {npc.known = npc.known ? 0 : 1}}>{bLabel}</button>
         <button onClick={() => { sigEdit( npc )}}> Update </button>
     </form>
     </>);
