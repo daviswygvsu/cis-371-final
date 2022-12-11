@@ -25,26 +25,26 @@ import '../styles/Lists.css';
 
 function App() {
   return (<>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <div class="container-fluid">
-        <ul class="navbar-nav">
-          <li class='nav-item'>
-            <a class='nav-link' href='/'>Home</a>
+    <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div className="container-fluid">
+        <ul className="navbar-nav">
+          <li className='nav-item'>
+            <a className='nav-link' href='/'>Home</a>
           </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='/login'>Log-In</a>
+          <li className='nav-item'>
+            <a className='nav-link' href='/login'>Log-In</a>
           </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='/signup'>Sign-Up</a>
+          <li className='nav-item'>
+            <a className='nav-link' href='/signup'>Sign-Up</a>
           </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='/games/'>Browse Games</a>
+          <li className='nav-item'>
+            <a className='nav-link' href='/games/'>Browse Games</a>
           </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='/games/mine/'>My Games</a>
+          <li className='nav-item'>
+            <a className='nav-link' href='/games/mine/'>My Games</a>
           </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='/pcs/mine/'>My PCs</a>
+          <li className='nav-item'>
+            <a className='nav-link' href='/pcs/mine/'>My PCs</a>
           </li>
         </ul>
       </div>
