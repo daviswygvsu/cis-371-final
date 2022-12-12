@@ -1,4 +1,5 @@
-# CIS 371 Final Project ("Xanathar's Vault of Adventures")
+# CIS 371 Final Project 
+## Xanathar's Vault of Adventures
 Final project for CIS 371, Grand Valley State University's course on Web Application Programming.
 
 ## Project Description
