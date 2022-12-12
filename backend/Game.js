@@ -12,7 +12,8 @@ class Game {
     isValid ( ) {
         if (!this.gm) {
             this.errors.push("Game must be assigned a Game Master.");
-        } if (!this.name) {
+        } 
+        if (!this.name) {
             this.errors.push("Game must be given some sort of name.")
         }
 
